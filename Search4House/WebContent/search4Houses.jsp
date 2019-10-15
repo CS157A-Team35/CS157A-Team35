@@ -18,7 +18,7 @@
            // Class.forName("com.mysql.cj.jdbc.Driver");
      		Class.forName("com.mysql.jdbc.Driver"); 
 
-     		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","newpassword");
+     		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","root");
 
            // con = DriverManager.getConnection("jdbc:mysql://localhost:3306/search4houses?serverTimezone=EST5EDT",user, password);
             out.println(db + " database successfully opened.<br/><br/>");
