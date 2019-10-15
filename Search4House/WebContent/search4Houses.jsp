@@ -45,7 +45,7 @@
             %> <table border="1"> <tr> <td> listingID </td> <td> userID </td> <td> location </td> <td> roomType </td> <td> price </td> <td> leaseTimeframe </td> <td> roomNum </td> <td> bathroomNum </td> <td> description </td> <td> photosID </td></tr> 
 			<%
             while(rs.next())
-            {	%><tr><% for (int x = 1; x<= 10; x++)
+            {	%><tr><% for (int x = 1; x<= 8; x++)
             	{ %>
               		<td><%out.println(rs.getObject(x)); }}%> </td></tr> </table><%
             
@@ -59,7 +59,7 @@
                             %> <table border="1"> <tr> <td> photoID </td> <td> photoURL </td> <td> listingID </td></tr>  <% 
                             while(rs.next())
                             {	              		
-                            	%><tr><% for (int x = 1; x<= 3; x++)
+                            	%><tr><% for (int x = 1; x<= 2; x++)
                             	{ %>
                               		<td><%out.println(rs.getObject(x)); }}%> </td></tr> </table><%
                 			
@@ -72,7 +72,7 @@
  %> <table border="1"> <tr> <td> listID </td> <td> listingID </td> <td> accID </td></tr> <%
                             while(rs.next())
                                     {	
-                                    %><tr><% for (int x = 1; x<= 3; x++)
+                                    %><tr><% for (int x = 1; x<= 5; x++)
                                     	{ %>
                                       		<td><%out.println(rs.getObject(x));}}%> </td></tr></table><% 
 
@@ -87,11 +87,68 @@
          %> <table border="1"> <tr> <td> contactAccID </td> <td> phoneNum </td> <td> email </td> <td>name</td><td>listingID</td></tr> <%
                                     while(rs.next())
                                             {	
-                                            %><tr><% for (int x = 1; x<= 5; x++)
+                                            %><tr><% for (int x = 1; x<= 4; x++)
                                             	{ %>
                                               		<td><%out.println(rs.getObject(x));}}%> </td></tr></table><% 
+                                            
+                                            out.println("List of all Addresses \"Addresses\": <br/>");
+                                              		rs = stmt.executeQuery("SELECT * FROM Addresses");
+                                            //stmt.executeUpdate("INSERT INTO Listings (listingID, userID, location, roomType, price, leaseTimeframe, roomNum, bathroomNum, description, photosID) " +"VALUES ('2', '10', 22)");    	
+                                            %> <table border="1"> <tr> <td> addrID </td> <td> streetAddress </td> <td> city </td>  <td> state </td> <td> zipCode </td></tr> 
+                                			<%
+                                            while(rs.next())
+                                            {	%><tr><% for (int x = 1; x<= 5; x++)
+                                            	{ %>
+                                              		<td><%out.println(rs.getObject(x)); }}%> </td></tr> </table><%
 
-                            
+
+                                            
+                                            
+                                            out.println("List of all Account's Listings: \"Accounts_Listings\": <br/>");
+                                              		rs = stmt.executeQuery("SELECT * FROM Accounts_Listings");
+                                            //stmt.executeUpdate("INSERT INTO Listings (listingID, userID, location, roomType, price, leaseTimeframe, roomNum, bathroomNum, description, photosID) " +"VALUES ('2', '10', 22)");    	
+                                            %> <table border="1"> <tr> <td> user_id </td> <td> listing_id </td> </tr> 
+                                			<%
+                                            while(rs.next())
+                                            {	%><tr><% for (int x = 1; x<= 2; x++)
+                                            	{ %>
+                                              		<td><%out.println(rs.getObject(x)); }}%> </td></tr> </table><%
+                                            out.println("List of all Account's Listings: \"Listing_Address\": <br/>");
+                                              		rs = stmt.executeQuery("SELECT * FROM Listing_Address");
+                                            //stmt.executeUpdate("INSERT INTO Listings (listingID, userID, location, roomType, price, leaseTimeframe, roomNum, bathroomNum, description, photosID) " +"VALUES ('2', '10', 22)");    	
+                                            %> <table border="1"> <tr> <td> listing_id </td> <td> addr_id </td> </tr> 
+                                			<%
+                                            while(rs.next())
+                                            {	%><tr><% for (int x = 1; x<= 2; x++)
+                                            	{ %>
+                                              		<td><%out.println(rs.getObject(x)); }}%> </td></tr> </table><%
+                                            out.println("List of all Account's Listings: \"Listings_AdditionalContact\": <br/>");
+                                              		rs = stmt.executeQuery("SELECT * FROM Listings_AdditionalContact");
+                                            //stmt.executeUpdate("INSERT INTO Listings (listingID, userID, location, roomType, price, leaseTimeframe, roomNum, bathroomNum, description, photosID) " +"VALUES ('2', '10', 22)");    	
+                                            %> <table border="1"> <tr> <td> listing_id </td> <td> addContact_id </td> </tr> 
+                                			<%
+                                            while(rs.next())
+                                            {	%><tr><% for (int x = 1; x<= 2; x++)
+                                            	{ %>
+                                              		<td><%out.println(rs.getObject(x)); }}%> </td></tr> </table><%
+                                            out.println("List of all Account's Listings: \"Listings_Photos\": <br/>");
+                                              		rs = stmt.executeQuery("SELECT * FROM Listings_Photos");
+                                            //stmt.executeUpdate("INSERT INTO Listings (listingID, userID, location, roomType, price, leaseTimeframe, roomNum, bathroomNum, description, photosID) " +"VALUES ('2', '10', 22)");    	
+                                            %> <table border="1"> <tr> <td> photo_id </td> <td> listing_id </td> </tr> 
+                                			<%
+                                            while(rs.next())
+                                            {	%><tr><% for (int x = 1; x<= 2; x++)
+                                            	{ %>
+                                              		<td><%out.println(rs.getObject(x)); }}%> </td></tr> </table><%
+                                            out.println("List of all Account's Listings: \"User_Favorites\": <br/>");
+                                              		rs = stmt.executeQuery("SELECT * FROM User_Favorites");
+                                            //stmt.executeUpdate("INSERT INTO Listings (listingID, userID, location, roomType, price, leaseTimeframe, roomNum, bathroomNum, description, photosID) " +"VALUES ('2', '10', 22)");    	
+                                            %> <table border="1"> <tr> <td> user_id </td> <td> list_id </td> </tr> 
+                                			<%
+                                            while(rs.next())
+                                            {	%><tr><% for (int x = 1; x<= 2; x++)
+                                            	{ %>
+                                              		<td><%out.println(rs.getObject(x)); }}%> </td></tr> </table><%
                             
                             
                     
