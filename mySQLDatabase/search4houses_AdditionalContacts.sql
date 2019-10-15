@@ -24,6 +24,7 @@ DROP TABLE IF EXISTS `AdditionalContacts`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `AdditionalContacts` (
   `contactAccID` varchar(45) NOT NULL DEFAULT '10',
+  `listingID` varchar(50) NOT NULL,
   `phoneNum` varchar(45) DEFAULT '408-408-4084',
   `email` varchar(45) DEFAULT 'billy@gmail.com',
   `name` varchar(45) DEFAULT 'Bob',
@@ -37,7 +38,7 @@ CREATE TABLE `AdditionalContacts` (
 
 LOCK TABLES `AdditionalContacts` WRITE;
 /*!40000 ALTER TABLE `AdditionalContacts` DISABLE KEYS */;
-INSERT INTO `AdditionalContacts` VALUES ('1','408','hi@gmail.com','Bob');
+INSERT INTO `AdditionalContacts` VALUES ('1','1','408-537-2892','hi@gmail.com','Bob'),('10','10','329-421-1900','ginny@gmail.com','Ginny'),('11','11','320-0955-5393','hammy@gmail.com','Ham'),('12','12','987-878-2912','rem@gmail.com','Rem'),('13','13','299-328-2389','kyo@gmail.com','Kyo'),('14','14','920-249-3219','expo@gmail.com','Expo'),('15','15','248-248-1911','debt@gmail.com','Debt'),('2','2','230-238-4292','nana@gmail.com','Nana'),('3','3','104-248-2482','henry@gmail.com','Henry'),('4','4','279-219-3292','taco@gmail.com','Taco'),('5','5','538-111-4211','angry@gmail.com','Angry'),('6','6','111-222-3333','number@gmail.com','Number'),('7','7','019-421-4819','chief@gmail.com','Chief'),('8','8','021-414-1411','george@gmail.com','George'),('9','9','202-232-2311','red@gmail.com','Red');
 /*!40000 ALTER TABLE `AdditionalContacts` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-14 23:36:03
+-- Dump completed on 2019-10-15 13:09:38
