@@ -19,8 +19,8 @@
 	
 	<!-- links to other parts of website. These are not final until we can get all the parts together -->
 	<div id = "menuTop" align  = "center">
-	<a href  = "/index.htm"><strong>Home</strong></a> |
-	<a href = "/Profile.htm"><strong>Profile</strong></a>
+	<a href  = "/Homework_1/index.jsp"><strong>Home</strong></a> |
+	<a href = "/Homework_1/Profile.jsp"><strong>Profile</strong></a>
 	</div>
 
 	<br>
@@ -47,8 +47,8 @@
 	<br>
 	
 	<div id = "menuTop" align  = "center">
-	<a href  = "/index.htm"><strong>Home</strong></a> |
-	<a href = "/Profile.htm"><strong>Profile</strong></a>
+	<a href  = "/Homework_1/index.jsp"><strong>Home</strong></a> |
+	<a href = "/Homework_1/Profile.jsp"><strong>Profile</strong></a>
 	</div>
 	
 	</body>
