@@ -41,7 +41,7 @@ CREATE TABLE `Listings` (
 
 LOCK TABLES `Listings` WRITE;
 /*!40000 ALTER TABLE `Listings` DISABLE KEYS */;
-INSERT INTO `Listings` VALUES ('1','House',10,21,1,1,NULL,'11'),('2','Shared Room',2,11,1,1,NULL,'10'),('3','Private Room',5,12,1,2,NULL,'11');
+INSERT INTO `Listings` VALUES ('1','Single Room',10,21,1,1,NULL,'7'),('10','Single Room',99,99,1,1,NULL,'9'),('11','Single Room',21,99,1,1,NULL,'11'),('12','Single Room',12,99,1,1,NULL,'12'),('13','Single Room',32,99,1,1,NULL,'13'),('14','Shared Room',193,99,1,1,NULL,'14'),('2','Studio',2,11,1,1,NULL,'10'),('3','Apartment',5,12,1,2,NULL,'1'),('4','Apartment',11,2,2,3,NULL,'2'),('5','Apartment',32,99,2,2,NULL,'3'),('6','Apartment',10420,99,4,2,NULL,'4'),('7','Apartment',450,99,1,5,NULL,'5'),('8','Duplex',10000,2,3,1,NULL,'6'),('9','Duplex',32,200,10,3,NULL,'8');
 /*!40000 ALTER TABLE `Listings` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-14 23:36:04
+-- Dump completed on 2019-10-29  2:14:37

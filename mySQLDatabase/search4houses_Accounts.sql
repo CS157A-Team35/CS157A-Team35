@@ -40,7 +40,7 @@ CREATE TABLE `Accounts` (
 
 LOCK TABLES `Accounts` WRITE;
 /*!40000 ALTER TABLE `Accounts` DISABLE KEYS */;
-INSERT INTO `Accounts` VALUES ('1','Bob','password','Bob','Billy','hi@gmai.com','408'),('2','Yusuf','Arman','Yusuf Arman','/yusufarman','ya@gmail.com','499-499-4999');
+INSERT INTO `Accounts` VALUES ('1','Bob','password','Bob','/billy','hi@gmai.com','408-531-9329'),('2','Yusuf','Arman','Yusuf Arman','/yusufarman','ya@gmail.com','499-499-4999'),('3','bing','nani123','Billy Nhieu','/billyn','billy@gmail.com','408-472-1592'),('4','mannyh','pacquaa1','Manny Paqua','/mannyp','mp@gmail.com','538-482-4238'),('5','eggz','eggboi1','Egg Man','/eggm','eggm@gmail.com','538-830-4289'),('6','danker','danky9','Dangerous Man','/danger','dangerman@gmail.com','439-428-2481');
 /*!40000 ALTER TABLE `Accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-14 23:36:04
+-- Dump completed on 2019-10-29  2:14:38

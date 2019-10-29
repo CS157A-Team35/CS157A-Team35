@@ -24,6 +24,7 @@ DROP TABLE IF EXISTS `Addresses`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Addresses` (
   `addrID` varchar(50) NOT NULL,
+  `listingID` varchar(50) DEFAULT NULL,
   `streetAddress` varchar(45) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
   `state` varchar(45) DEFAULT NULL,
@@ -38,7 +39,7 @@ CREATE TABLE `Addresses` (
 
 LOCK TABLES `Addresses` WRITE;
 /*!40000 ALTER TABLE `Addresses` DISABLE KEYS */;
-INSERT INTO `Addresses` VALUES ('1','123 Sesame Street','San Jose','CA','95111');
+INSERT INTO `Addresses` VALUES ('1','1','123 Sesame Street','San Jose','CA','95111'),('10','10','321 Chicken Way','San Jose','CA','95111'),('11','11','423 Mamayack Drive','San Jose','CA','95111'),('12','12','4938 Tiktok Street','San Jose','CA','95111'),('13','13','4367 Pogs Drive','San Jose','CA','95111'),('14','14','232 Pepe Way','San Jose','CA','95111'),('2','3','345 Hangry Street','San Jose','CA','95111'),('3','4','123 Apple Drive','San Jose','CA','95111'),('4','5','9473 Saint Row','San Jose','CA','95111'),('5','6','456 Obama Drive','San Jose','CA','95111'),('6','7','92 Good Street','San Jose','CA','95111'),('7','2','745 N Abel Street','San Jose','CA','95111'),('8','8','1771 N Milpitas Boulevard ','San Jose','CA','95111'),('9','9','38101 Kearsarge Mill Road','San Jose','CA','95111');
 /*!40000 ALTER TABLE `Addresses` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-14 23:36:02
+-- Dump completed on 2019-10-29  2:14:36

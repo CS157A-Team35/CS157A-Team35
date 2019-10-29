@@ -24,6 +24,7 @@ DROP TABLE IF EXISTS `Photos`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Photos` (
   `photoID` varchar(45) NOT NULL DEFAULT '10',
+  `listID` varchar(50) DEFAULT NULL,
   `photoURL` varchar(45) DEFAULT 'hekkkks',
   PRIMARY KEY (`photoID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -35,7 +36,7 @@ CREATE TABLE `Photos` (
 
 LOCK TABLES `Photos` WRITE;
 /*!40000 ALTER TABLE `Photos` DISABLE KEYS */;
-INSERT INTO `Photos` VALUES ('1','hekkk');
+INSERT INTO `Photos` VALUES ('1','1','niceone'),('10','10','a'),('11','11','b'),('12','12','c'),('13','13','d'),('14','14','e'),('2','2','studio'),('3','3','cool'),('4','4','image'),('5','5','cute'),('6','6','wow'),('7','7','banana'),('8','8','duplex'),('9','9','duplezz');
 /*!40000 ALTER TABLE `Photos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-14 23:36:04
+-- Dump completed on 2019-10-29  2:14:37
