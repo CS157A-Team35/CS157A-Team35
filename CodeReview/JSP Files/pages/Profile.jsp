@@ -7,6 +7,14 @@
 		body{
 			background: linear-gradient(#FFFF99 20%, #0066CC 80%) fixed;
 		}
+		
+		.center {
+  position:absolute;
+top: 30%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
 	</style>
 
 <head>
@@ -18,14 +26,15 @@
 	
 	
 	<!-- still need to replace this placeholder -->
-	<h1 align  = "center">Search4House</h1>
 	
 	<!-- links to other parts of website. These are not final until we can get all the parts together -->
-	<div id = "menuTop" align  = "center">
-	<a href  = "index.jsp"><strong>Home</strong></a> |
-	<a href  = "Profile.jsp"><strong>Profile</strong></a> |
-	<a href = "FavoriteList.jsp"><strong>Favorites List</strong></a>
-	<a href = "Search.jsp"><strong>Search</strong></a>
+	<!-- links to other parts of website. These are not final until we can get all the parts together -->
+<h1 align  = "center" style = "color: #4B4B4B">Search4House</h1>
+ <div id = "menuTop" align  = "center">
+	<a href  = "WelcomePage.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Home</strong></a> |
+	<a href  = "Profile.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Profile</strong></a> |
+	<a href = "FavoriteList.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Favorites List</strong></a> | 
+	<a href = "Search.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Search</strong></a>
 
 	</div><hr>
 	
@@ -41,8 +50,9 @@
 	<br>
 	<br>
 	<br>
-	
-	<table border = "0" width  = "100%">
+	<div>
+	<table>
+	<table class = "center" border = "0" width  = "50%" style= "background-color:white">
 		<thead>
 			<tr>
 				<td colspan  = "4">Contact Information</td>
@@ -58,14 +68,15 @@
 			<td>Phone Number:</td><td>(123)456-7890</td>
 		</tr>
 	</table>
+	</div>
 	
 	<br>
 	<br>
 	<br>
 	
-	<div id = "menuBottom" align  = "center">
-	<a href  = "index.jsp"><strong>Home</strong></a> |
-	<a href = "FavoriteList.jsp"><strong>Favorites List</strong></a>
+	<div class = "menuBottom" align  = "center" style = "position: fixed; bottom: 10%; left: 45%; text-decoration: none; color: white">
+	<a href  = "index.jsp" style="text-decoration: none; color: white"><strong>Home</strong></a> |
+	<a href = "FavoriteList.jsp" style="text-decoration: none; color: white"><strong>Favorites List</strong></a>
 	</div>
 	
 	</body>

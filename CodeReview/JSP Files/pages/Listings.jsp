@@ -44,16 +44,31 @@ $("#button").click(function() {
 }
 
 
+.link { 
+text-decoration:none;
+color: #4B4B4B; }
+.link:hover { color: #FF94D5; }
+
+.backLink { 
+text-decoration:none;
+color: #FF94D5; }
+.backLink:hover { color: #4B4B4B; }
+
+
+
+
+
 </style>
 
 </head>
 <body>
-	<h1 align  = "center">Search4House</h1>
+	<!-- links to other parts of website. These are not final until we can get all the parts together -->
+<h1 align  = "center" style = "color: #4B4B4B">Search4House</h1>
  <div id = "menuTop" align  = "center">
-	<a href  = "index.jsp"><strong>Home</strong></a> |
-	<a href  = "Profile.jsp"><strong>Profile</strong></a> |
-	<a href = "FavoriteList.jsp"><strong>Favorites List</strong></a>
-	<a href = "Search.jsp"><strong>Search</strong></a>
+	<a href  = "WelcomePage.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Home</strong></a> |
+	<a href  = "Profile.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Profile</strong></a> |
+	<a href = "FavoriteList.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Favorites List</strong></a> | 
+	<a href = "Search.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Search</strong></a>
 
 	</div><hr>
  <h2>Listings for: <% 
@@ -69,13 +84,14 @@ $("#button").click(function() {
 
  
  <h4>
- <br> <a name = "top"></a>
- <a href = "#apartments"> Apartments</a> <br>
- <a href = "#duplex"> Duplex</a> <br>
- <a href = "#sharedRoom"> Shared Room</a> <br>
- <a href = "#singleRoom"> Single Room</a> <br>
- <a href = "#studio"> Studio</a> <br></h4>
+ <br> <a name = "top"></a> <div align = "center">
+ <a class = "link" href = "#apartments" > Apartments</a> | 
+ <a href = "#duplex" class = "link" > Duplex</a> | 
+ <a href = "#sharedRoom" class = "link" > Shared Room</a> | 
+ <a href = "#singleRoom" class = "link"> Single Room</a> | 
+ <a href = "#studio" class = "link" > Studio</a> <br></h4>
  
+ </div>
  <h3 id = "apartments">Apartments</h3>
  <% 
  try {
@@ -140,7 +156,9 @@ $("#button").click(function() {
                                     	if (photo.equals(photoID)){
                                         	String URL = rs3.getString("photoURL")+".jpg";
                                         	//out.println(URL);
-                                        	%><div class = "container"><img src="img/<%out.println(URL);%>" height="200" width="300">  <button class="btn" id ="button">♡</button>
+                                        	%><div class = "container"><a href = Listing.jsp?<%out.println("listing="+listing); %>> <img src="img/<%out.println(URL);%>" height="200" width="300"></a>  <button class="btn" id ="button">♡</button>
+                                        	
+                                        	
                                         	
                                         	
                                         	

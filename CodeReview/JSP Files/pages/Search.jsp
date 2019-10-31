@@ -30,19 +30,32 @@ function checkSearch()
     }
     
     
-} </script>
+} 
 
+</script>
+
+
+<style>
+
+.link { 
+text-decoration:none;
+color: #4B4B4B; }
+.link:hover { color: #FF94D5; }
+
+
+</style>
 
 </head>
 <body>
-	<h1 align  = "center">Search4House</h1>
+	<!-- links to other parts of website. These are not final until we can get all the parts together -->
+<h1 align  = "center" style = "color: #4B4B4B">Search4House</h1>
  <div id = "menuTop" align  = "center">
-	<a href  = "index.jsp"><strong>Home</strong></a> |
-	<a href  = "Profile.jsp"><strong>Profile</strong></a> |
-	<a href = "FavoriteList.jsp"><strong>Favorites List</strong></a>
-	<a href = "Search.jsp"><strong>Search</strong></a>
+	<a href  = "WelcomePage.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Home</strong></a> |
+	<a href  = "Profile.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Profile</strong></a> |
+	<a href = "FavoriteList.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Favorites List</strong></a> | 
+	<a href = "Search.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Search</strong></a>
 
-	</div> <hr>
+	</div><hr>
  <h2>Search by Area</h2>
 
  <form name = "zipSearch" action="Listings.jsp" method="GET" onSubmit="return checkSearch()">
