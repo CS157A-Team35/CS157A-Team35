@@ -4,6 +4,11 @@
     
 <!DOCTYPE html>
 <html>
+	<style>
+		body{
+			background: linear-gradient(#FFFF99 20%, #0066CC 80%) fixed;
+		}
+	</style>
 <head>
 <meta charset="UTF-8">
 <title>search4House</title>
@@ -99,7 +104,7 @@ color: #FF94D5; }
      java.sql.Connection con; 
  		Class.forName("com.mysql.jdbc.Driver"); 
 
- 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","newpassword");
+ 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","FuukaYamagishi1337");
      
      Statement stmt = con.createStatement();
      Statement stmt1 = con.createStatement();
@@ -216,7 +221,7 @@ color: #FF94D5; }
      java.sql.Connection con; 
  		Class.forName("com.mysql.jdbc.Driver"); 
 
- 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","newpassword");
+ 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","FuukaYamagishi1337");
      
      Statement stmt = con.createStatement();
      Statement stmt1 = con.createStatement();
@@ -332,7 +337,7 @@ color: #FF94D5; }
      java.sql.Connection con; 
  		Class.forName("com.mysql.jdbc.Driver"); 
 
- 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","newpassword");
+ 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","FuukaYamagishi1337");
      
      Statement stmt = con.createStatement();
      Statement stmt1 = con.createStatement();
@@ -449,7 +454,7 @@ color: #FF94D5; }
      java.sql.Connection con; 
  		Class.forName("com.mysql.jdbc.Driver"); 
 
- 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","newpassword");
+ 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","FuukaYamagishi1337");
      
      Statement stmt = con.createStatement();
      Statement stmt1 = con.createStatement();
@@ -563,7 +568,7 @@ color: #FF94D5; }
      java.sql.Connection con; 
  		Class.forName("com.mysql.jdbc.Driver"); 
 
- 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","newpassword");
+ 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","FuukaYamagishi1337");
      
      Statement stmt = con.createStatement();
      Statement stmt1 = con.createStatement();

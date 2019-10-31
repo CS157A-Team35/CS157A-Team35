@@ -3,6 +3,11 @@
     <%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
+	<style>
+		body{
+			background: linear-gradient(#FFFF99 20%, #0066CC 80%) fixed;
+		}
+	</style>
 <head>
 <meta charset="UTF-8">
 <title>Search4House</title>
