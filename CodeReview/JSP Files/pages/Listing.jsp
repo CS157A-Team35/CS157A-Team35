@@ -135,8 +135,6 @@
 
       		
       		
-      		String roomT = rs.getString("roomType");
-            if (roomT.equals("Apartment")){
            	 
            			 
             	//out.println("listingID: " + listingID);%> <br><h1><% 
@@ -168,12 +166,12 @@
             	String desc = rs.getString("description");%> <br><%
             	
             	out.println(" Information: "+ desc);
-            	%> <br><br></td><% 
+            	%> <br><br><% 
             	
             	
             	
             	
-      	}}}
+      	}}
       	
 
 

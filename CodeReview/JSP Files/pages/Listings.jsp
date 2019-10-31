@@ -4,11 +4,6 @@
     
 <!DOCTYPE html>
 <html>
-	<style>
-		body{
-			background: linear-gradient(#FFFF99 20%, #0066CC 80%) fixed;
-		}
-	</style>
 <head>
 <meta charset="UTF-8">
 <title>search4House</title>
@@ -22,6 +17,11 @@ $("#button").click(function() {
 
 
 <style>
+
+
+body{
+			background: linear-gradient(#FFFF99 20%, #0066CC 80%) fixed;
+		}
 .container {
   position: relative;
   width: 50%;
@@ -278,7 +278,7 @@ color: #FF94D5; }
                                     	if (photo.equals(photoID)){
                                         	String URL = rs3.getString("photoURL")+".jpg";
                                         	//out.println(URL);
-                                        	%><div class = "container"><img src="img/<%out.println(URL);%>" height="200" width="300">  <button class="btn" id ="button">♡</button>
+                                        	%><div class = "container"><a href = Listing.jsp?<%out.println("listing="+listing); %>> <img src="img/<%out.println(URL);%>" height="200" width="300"></a>  <button class="btn" id ="button">♡</button>
                                         	
                                         	
                                         	
@@ -394,7 +394,7 @@ color: #FF94D5; }
                                     	if (photo.equals(photoID)){
                                         	String URL = rs3.getString("photoURL")+".jpg";
                                         	//out.println(URL);
-                                        	%><div class = "container"><img src="img/<%out.println(URL);%>" height="200" width="300">  <button class="btn" id ="button">♡</button>
+                                        	%><div class = "container"><a href = Listing.jsp?<%out.println("listing="+listing); %>> <img src="img/<%out.println(URL);%>" height="200" width="300"></a>  <button class="btn" id ="button">♡</button>
                                         	
                                         	
                                         	
@@ -511,7 +511,7 @@ color: #FF94D5; }
                                     	if (photo.equals(photoID)){
                                         	String URL = rs3.getString("photoURL")+".jpg";
                                         	//out.println(URL);
-                                        	%><div class = "container"><img src="img/<%out.println(URL);%>" height="200" width="300">  <button class="btn" id ="button">♡</button>
+                                        	%><div class = "container"><a href = Listing.jsp?<%out.println("listing="+listing); %>> <img src="img/<%out.println(URL);%>" height="200" width="300"></a>  <button class="btn" id ="button">♡</button>
                                         	
                                         	
                                         	
@@ -625,7 +625,7 @@ color: #FF94D5; }
                                     	if (photo.equals(photoID)){
                                         	String URL = rs3.getString("photoURL")+".jpg";
                                         	//out.println(URL);
-                                        	%><div class = "container"><img src="img/<%out.println(URL);%>" height="200" width="300">  <button class="btn" id ="button">♡</button>
+                                        	%><div class = "container"><a href = Listing.jsp?<%out.println("listing="+listing); %>> <img src="img/<%out.println(URL);%>" height="200" width="300"></a>  <button class="btn" id ="button">♡</button>
                                         	
                                         	
                                         	
