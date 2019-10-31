@@ -273,7 +273,7 @@ color: #FF94D5; }
                                     	if (photo.equals(photoID)){
                                         	String URL = rs3.getString("photoURL")+".jpg";
                                         	//out.println(URL);
-                                        	%><div class = "container"><img src="img/<%out.println(URL);%>" height="200" width="300">  <button class="btn" id ="button">♡</button>
+                                        	%><div class = "container"><a href = Listing.jsp?<%out.println("listing="+listing); %>> <img src="img/<%out.println(URL);%>" height="200" width="300"></a>  <button class="btn" id ="button">♡</button>
                                         	
                                         	
                                         	
@@ -389,7 +389,7 @@ color: #FF94D5; }
                                     	if (photo.equals(photoID)){
                                         	String URL = rs3.getString("photoURL")+".jpg";
                                         	//out.println(URL);
-                                        	%><div class = "container"><img src="img/<%out.println(URL);%>" height="200" width="300">  <button class="btn" id ="button">♡</button>
+                                        	%><div class = "container"><a href = Listing.jsp?<%out.println("listing="+listing); %>> <img src="img/<%out.println(URL);%>" height="200" width="300"></a>  <button class="btn" id ="button">♡</button>
                                         	
                                         	
                                         	
@@ -506,7 +506,7 @@ color: #FF94D5; }
                                     	if (photo.equals(photoID)){
                                         	String URL = rs3.getString("photoURL")+".jpg";
                                         	//out.println(URL);
-                                        	%><div class = "container"><img src="img/<%out.println(URL);%>" height="200" width="300">  <button class="btn" id ="button">♡</button>
+                                        	%><div class = "container"><a href = Listing.jsp?<%out.println("listing="+listing); %>> <img src="img/<%out.println(URL);%>" height="200" width="300"></a>  <button class="btn" id ="button">♡</button>
                                         	
                                         	
                                         	
@@ -620,7 +620,7 @@ color: #FF94D5; }
                                     	if (photo.equals(photoID)){
                                         	String URL = rs3.getString("photoURL")+".jpg";
                                         	//out.println(URL);
-                                        	%><div class = "container"><img src="img/<%out.println(URL);%>" height="200" width="300">  <button class="btn" id ="button">♡</button>
+                                        	%><div class = "container"><a href = Listing.jsp?<%out.println("listing="+listing); %>> <img src="img/<%out.println(URL);%>" height="200" width="300"></a>  <button class="btn" id ="button">♡</button>
                                         	
                                         	
                                         	

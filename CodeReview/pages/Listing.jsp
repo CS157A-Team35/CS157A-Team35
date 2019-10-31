@@ -130,18 +130,15 @@
 
       		
       		
-      		String roomT = rs.getString("roomType");
-            if (roomT.equals("Apartment")){
+      		
            	 
            			 
             	//out.println("listingID: " + listingID);%> <br><h1><% 
             	String price = rs.getString("price");
-            	out.println("$" + price);%></h1> <br> <h3><% 
-            	
-            	
-               
-            	
-            	ResultSet rs2 = stmt3.executeQuery("SELECT * FROM Addresses");
+            	out.println("$" + price);%></h1> <br> <h3>
+    
+    <%
+            ResultSet rs2 = stmt3.executeQuery("SELECT * FROM Addresses");
            	 while(rs2.next()){
            	      	String theListID = rs2.getString("listingID");
            	      	//out.println(theZip + zipCode);
@@ -153,7 +150,8 @@
 
        		out.println(street + " " + city+ ", "+ state);
            	      	}}
-            	%></h3> <br><% 
+            	%>
+            	</h3> <br><% 
             	String roomNo = rs.getString("roomNum");
             	out.println("| "+roomNo + " bedroom(s) | ");
             	String bathNo = rs.getString("bathroomNum");
@@ -163,12 +161,12 @@
             	String desc = rs.getString("description");%> <br><%
             	
             	out.println(" Information: "+ desc);
-            	%> <br><br></td><% 
+            	%> <br><br><% 
             	
             	
             	
             	
-      	}}}
+      	}}
       	
 
 
