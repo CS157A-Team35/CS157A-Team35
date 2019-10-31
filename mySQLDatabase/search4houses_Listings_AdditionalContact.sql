@@ -35,6 +35,7 @@ CREATE TABLE `Listings_AdditionalContact` (
 
 LOCK TABLES `Listings_AdditionalContact` WRITE;
 /*!40000 ALTER TABLE `Listings_AdditionalContact` DISABLE KEYS */;
+-INSERT INTO `Listings_AdditionalContact` VALUES ('10000','10016'),('100008','10017'),('100004','10018'),('100001','10019'),('100009','10020'),('100053','10021'),('1000215','10022'),('1000026','10023'),('100002','10024'),('100003','10025'),('1000072','10026'),('100015','10027'),('100006','10028'),('1000047','10029'),('1000151','10030');
 /*!40000 ALTER TABLE `Listings_AdditionalContact` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
