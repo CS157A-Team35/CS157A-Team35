@@ -2,45 +2,34 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-	
 	<style>
-		body{
-			background: linear-gradient(#FFFF99 20%, #0066CC 80%) fixed;
-		}
 		
-		.center {
-  position:absolute;
-top: 30%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
-}
 	</style>
-
 <head>
-<meta charset="ISO-8859-1">
-<title>Search 4 Home - Profile</title>
-</head>
-	
-	<body>
-	
-	
-	<!-- still need to replace this placeholder -->
-	
-	<!-- links to other parts of website. These are not final until we can get all the parts together -->
-	<!-- links to other parts of website. These are not final until we can get all the parts together -->
-<h1 align  = "center" style = "color: #4B4B4B">Search4House</h1>
- <div id = "menuTop" align  = "center">
-	<a href  = "WelcomePage.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Home</strong></a> |
-	<a href  = "Profile.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Profile</strong></a> |
-	<a href = "FavoriteList.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Favorites List</strong></a> | 
-	<a href = "Search.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Search</strong></a>
+<meta charset="UTF-8">
+<title>Search4House</title>
 
-	</div><hr>
-	
-	<br>
-	<br>
-	<br>
+<script>
+
+
+</script>
+
+
+<style>
+
+.link { 
+text-decoration:none;
+color: #4B4B4B; }
+.link:hover { color: #FF94D5; }
+
+
+</style>
+
+</head>
+<body>
+
+<jsp:include page="navBar.jsp" />
+
 	
 	<!-- here is where we put the profile picture (delete the comments -->
 	<img src = "/html/images/test.png" alt = "Test Image" width = "100" height = "100" border  = "2"/> <br>
