@@ -30,18 +30,56 @@ color: #4B4B4B; }
 
 <jsp:include page="navBar.jsp" />
 	
+	
 	<h2 align = "left">Favorites</h2>
-	<a href = "/favoriteslist.htm"><strong>Edit</strong></a>
+	<button type = "button">Edit Favorites</button>
 	
 	<br>
 	<br>
 	
 	<table border = "1" cellspacing = "5" cellpadding  = "5">
 		<tr>
-			<th>This is a placeholder</th>
-			<th>until I get better</th>
-			<th>at html</th>
+			<th>Rank</th>
+			<th>Photo</th>
+			<th>Listing ID</th>
+			<th>Price</th>
+			<th>Address</th>
 		</tr>
+		<tr>
+			<td>1</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>		
+		<tr>
+			<td>3</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+		<tr>
+			<td>4</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+		<tr>
+			<td>5</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
 	
 	</table>
 	

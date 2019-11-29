@@ -27,14 +27,15 @@ color: #4B4B4B; }
 
 </head>
 <body>
-
+<% String db = "search4houses"; %>
 <jsp:include page="navBar.jsp" />
+
 
 	
 	<!-- here is where we put the profile picture (delete the comments -->
 	<img src = "/html/images/test.png" alt = "Test Image" width = "100" height = "100" border  = "2"/> <br>
-	<font size = "5">Username Here</font><br>
-	<a href = "/profile.htm"><strong>Edit</strong></a>
+	<font size = "5">Username</font><br>
+	<button type = "button">Edit Profile</button>
 	
 	<br>
 	<br>
