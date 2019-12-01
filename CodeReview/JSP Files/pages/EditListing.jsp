@@ -116,8 +116,7 @@ background-color: #ff6363;
 	
 	
 	 <form name = "newListing" action="Listing.jsp?listing=" style="margin-left:5%; margin-right:5%" method="POST" onSubmit="return checkValues()" autocomplete="on">
-	<div class="form-group">
-	<div class="form-control" style="padding-right:20%; padding-left:20%;"><fieldset style="padding:15px;">
+	<div style="padding-right:20%; padding-left:20%;"><fieldset style="padding:15px;">
 	
 	<legend style ="font-size:24px;color: #ff6363; padding-top: 10px;">Contact Info</legend>
 	  <input type="radio" name="contactInfo" value="userContact" id="userContactInfo" onclick="if(this.checked){disableAddContact()}" > Use mine<br>
@@ -135,7 +134,7 @@ background-color: #ff6363;
 	</fieldset></div><hr class="dashed">
 	
 	
-	<div class="col-3"><div class="form-control">		<a class="addListTitle">Room type</a> <br>
+	<div class="col-3"> 		<a class="addListTitle">Room type</a> <br>
 	<small>Select the type of room</small><br>
     <select name = "roomType" size = 5 style="font-size:16px;"required>
     <option value = "apartment">Apartment</option>
@@ -157,11 +156,11 @@ background-color: #ff6363;
        <a class="addListTitle"> Lease length</a> <br>
       <small> Set lease length for total months</small><br>
         <input type="text" name="zipcode"  size="20" required/>
-         </div></div>
+         </div>
          
          
          
-        <a class="col-5"> <div class="form-control">
+        <a class="col-5"> 
          <fieldset>
        <legend style ="font-size:24px;color: #ff6363;"> Address </legend><br>
        
@@ -229,16 +228,16 @@ background-color: #ff6363;
 </select>	
 	Zip Code: 
 	        <input type="text" name="zipcode" maxlength = "5" size=5 style="margin-bottom:40px;" required/> <br>
-	        </fieldset></div></a>
+	        </fieldset></a>
 	        
-	    <a class="col-3"> <div class="form-control">
+	    <a class="col-3"> 
 	    <a class="addListTitle">Photo(s): </a><br>
 	<small>*jpeg format only, up to 5 photos per listing* </small><br>
 	<input type="file" name="image1" accept="image/jpeg" required /> <br>
 	<input type="file" name="image2" accept="image/jpeg"  /> <br>
 	<input type="file" name="image3" accept="image/jpeg"  /> <br>
 	<input type="file" name="image4" accept="image/jpeg"  /> <br>
-	<input type="file" name="image5" accept="image/jpeg"  /> <br><br><br></div>
+	<input type="file" name="image5" accept="image/jpeg"  /> <br><br><br>
 	</a>
 
 	
@@ -260,7 +259,7 @@ background-color: #ff6363;
     <a class="col-9">
     <input type="submit" id="buttonColor" style="float: right;" value="Submit Listing" onSubmit="return checkValues()"/> 
     <button type="button" id="buttonColor" name="cancelButton" style="float: right; margin-right:25px" onclick="javascript:history.back()">Cancel New Listing</button>
-    </a></div>
+    </a>
 </form></a>
 	
 	

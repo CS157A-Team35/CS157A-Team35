@@ -1,15 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+        <%@ page import="java.sql.*"%>
+    
 <!DOCTYPE html>
 <html>
-	<style>
-		
-	</style>
+<script src="basics.js"> </script>
+
+  <link rel="stylesheet" href="style.css">
 <head>
 <meta charset="UTF-8">
-<title>Search4House</title>
-
+<title>search4House</title>
+ <!-- COPY AND PASTE EVERYTHING HERE ^^^^^^ -->
 <script>
+
 
 
 </script>
@@ -27,8 +30,29 @@ color: #4B4B4B; }
 
 </head>
 <body>
-<% String db = "search4houses"; %>
 <jsp:include page="navBar.jsp" />
+
+
+ <%
+ String db = "search4houses";
+ String user;
+ String addressID;
+ try {
+     
+     java.sql.Connection con; 
+ 		Class.forName("com.mysql.jdbc.Driver"); 
+
+ 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","newpassword");
+     
+     Statement stmt = con.createStatement();
+     ResultSet rs = stmt.executeQuery("SELECT * FROM Addresses"); 
+     
+     stmt.close();
+     con.close();
+     } catch(SQLException e) {
+     out.println("SQLException caught: " + e.getMessage()); 
+ }
+ %>
 
 
 	

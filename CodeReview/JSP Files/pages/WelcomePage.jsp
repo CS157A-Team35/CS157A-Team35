@@ -1,15 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+        <%@ page import="java.sql.*"%>
+    
 <!DOCTYPE html>
 <html>
-	<style>
-		body{
-			background: linear-gradient(#FFFF99 20%, #0066CC 80%) fixed;
-		}
-	</style>
+<script src="basics.js"> </script>
+
+  <link rel="stylesheet" href="style.css">
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<title>search4House</title>
+<script>
+
+
+
+
+</script>
 </head>
 <body>
 	<fieldset>
