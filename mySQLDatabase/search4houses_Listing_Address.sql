@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `Listing_Address`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Listing_Address` (
-  `listing_id` varchar(50) NOT NULL,
+  `listing_id` int(11) NOT NULL,
   `addr_id` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`listing_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -35,7 +35,7 @@ CREATE TABLE `Listing_Address` (
 
 LOCK TABLES `Listing_Address` WRITE;
 /*!40000 ALTER TABLE `Listing_Address` DISABLE KEYS */;
-INSERT INTO `Listing_Address` VALUES ('1','1'),('10','10'),('100001','100001'),('100002','100002'),('100003','100003'),('100004','100004'),('100005','100005'),('100006','100006'),('100007','100007'),('100008','100008'),('100009','100009'),('100010','1000010'),('100011','100011'),('100012','100012'),('100013','100013'),('100014','100014'),('100015','100015'),('11','11'),('12','12'),('13','13'),('14','14'),('2','7'),('3','2'),('4','3'),('5','4'),('6','5'),('7','6'),('8','8'),('9','9');
+INSERT INTO `Listing_Address` VALUES (1,'1'),(2,'7'),(3,'2'),(4,'3'),(5,'4'),(6,'5'),(7,'6'),(8,'8'),(9,'9'),(10,'10'),(11,'11'),(12,'12'),(13,'13'),(14,'14'),(15,'15'),(16,'16'),(17,'17'),(18,'18'),(19,'19'),(20,'20'),(21,'21'),(22,'22'),(23,'23'),(24,'24'),(25,'25'),(26,'26'),(27,'27'),(28,'28'),(29,'29'),(30,'30'),(31,'31'),(32,'32');
 /*!40000 ALTER TABLE `Listing_Address` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-28 20:38:45
+-- Dump completed on 2019-12-02  4:09:10

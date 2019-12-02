@@ -14,21 +14,7 @@
 <script>
 
 
-function checkValues(){
-	
-	
-	if(document.zipSearch.zipcode.value=="")
-    {
-    } else {
-    	addToDB();
-    	alert("Successfully created Listing!");
 
-    }
-}
-
-function addToDB(){
-	
-}
 
 function disableAddContact(){
 
@@ -77,9 +63,34 @@ background-color: #ff6363;
 </head>
 <body>
 
+<jsp:include page="navBar.jsp" />
 
 
  <%
+ if (session == null || session.getAttribute("userID") == null) {
+	 
+	 %> 
+	 
+	  <div class="addListTitle"  style="position: absolute; align: center; padding-right:30%; padding-left:30%;">
+	  Log in required to access this page<br>
+	  <small>You will be redirected in 3 seconds...</small>
+	  </div>
+	          <meta http-equiv="refresh" content="3;url=Register.jsp" />
+	  
+
+
+
+	<%
+
+ } else {
+ 
+
+
+	 
+ //need to get the listingID from profile selection
+ 
+ 
+ 
  String db = "search4houses";
  String user;
  String addressID;
@@ -90,43 +101,76 @@ background-color: #ff6363;
 
  		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","newpassword");
      
-     Statement stmt = con.createStatement();
-     ResultSet rs = stmt.executeQuery("SELECT * FROM Addresses"); 
-     
-     stmt.close();
-     con.close();
-     } catch(SQLException e) {
-     out.println("SQLException caught: " + e.getMessage()); 
- }
+//listings
+ 	    Statement stmt = con.createStatement();
+		   ResultSet rs = stmt.executeQuery("SELECT * FROM search4houses.Listings WHERE listingID=3"); //insert listingID here
+			//(listingID, roomType, price, leaseTimeFrame, roomNum, bathroomNum, description)
+	
+//photos
+			 Statement stmt1 = con.createStatement();
+				   ResultSet rs1 = stmt1.executeQuery("SELECT * FROM search4houses.Photos, search4houses.Listings_Photos WHERE photoID=photo_id AND listing_id=3;");  //insert listingID here
+			
+//Address	   
+			Statement stmt2 = con.createStatement();
+				   ResultSet rs2 = stmt2.executeQuery("SELECT * FROM search4houses.Addresses, search4houses.Listing_Address WHERE addrID=addr_ID AND listing_id=3;");  //insert listingID here
+//Contact	   
+			Statement stmt3 = con.createStatement();
+					ResultSet rs3 = stmt3.executeQuery("SELECT * FROM search4houses.AdditionalContacts, search4houses.Listings_AdditionalContact WHERE contactAccID=addContact_ID AND listing_id=3;");  //insert listingID here
+						   
+			if (rs.next()==true && rs1.next()==true && rs2.next()==true && rs3.next()==true){
+			String listingID = rs.getString("listingID");
+			String roomType = rs.getString("roomType");
+			String price = rs.getString("price");
+			//System.out.println(price);
+
+			String leaseTimeFrame = rs.getString("leaseTimeFrame");
+			String roomNum = rs.getString("roomNum");
+			String bathroomNum = rs.getString("bathroomNum");
+			String description = rs.getString("description");
+			
+			String streetAddress = rs2.getString("streetAddress");
+			String city = rs2.getString("city");
+			String state = rs2.getString("state");
+			String zipCode = rs2.getString("zipCode");
+			
+			String phoneNum = rs3.getString("phoneNum");
+			String email = rs3.getString("email");
+			String name = rs3.getString("name");
+			
+			
+			
+			
+			
+			
+
  %>
 
 
 
 
-<jsp:include page="navBar.jsp" />
 
 	
 	
-		<a class="addListSubTitle">
+		<label class="addListSubTitle">
 	
 	
 	
-	DONT FORGET TO ADD LISTING ID TO END OF THIS (if possible)
 	
 	
 	
-	 <form name = "newListing" action="Listing.jsp?listing=" style="margin-left:5%; margin-right:5%" method="POST" onSubmit="return checkValues()" autocomplete="on">
-	<div style="padding-right:20%; padding-left:20%;"><fieldset style="padding:15px;">
+	 <form name = "newListing" action="ConfirmedNewListing.jsp" style="margin-left:5%; margin-right:5%" method="POST" onSubmit="" autocomplete="on">
+	<div class="form-group">
+	<div  style="padding-right:20%; padding-left:20%;"><fieldset style="padding:15px;">
 	
 	<legend style ="font-size:24px;color: #ff6363; padding-top: 10px;">Contact Info</legend>
-	  <input type="radio" name="contactInfo" value="userContact" id="userContactInfo" onclick="if(this.checked){disableAddContact()}" > Use mine<br>
-	  <input type="radio" name="contactInfo" value="diffContact" id="aDiffContact" onclick="if(this.checked){enableAddContact()}">Another Contact<br>
+	  <input type="radio" class="form-check-input" name="contactInfo" value="userContact" id="userContactInfo" onclick="if(this.checked){disableAddContact()}" > Use mine<br>
+	  <input type="radio" class="form-check-input" name="contactInfo" value="diffContact" id="aDiffContact" onclick="if(this.checked){enableAddContact()}">Another Contact<br>
 	  <br>Contact Name: <br>
-        <input type="text" name="contactName" id="contactName" size=50 required disabled/> <small>Format: FirstName LastName</small><br>
+        <input type="text" class="form-control" name="contactName" id="contactName" size=50  disabled placeholder="<%out.println(name);%>" value="<%out.println(name);%>"/> <br>
       Email Address: <br>
-        <input type="email" name="email" id="email" size=60 required disabled/> <small>Format: 123@abc.com</small><br>  
+        <input type="email" class="form-control" name="email" id="email" size=60  disabled placeholder="<%out.println(email);%>" value="<%out.println(email);%>"/> <small></small><br>  
         Phone Number: <br>
-        <input type="tel" name="phoneNum" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phoneNum" size=30 required disabled/><small>Format: 123-456-7890</small> <br>
+        <input type="tel" class="form-control" name="phoneNum" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phoneNum" size=30  disabled placeholder="<%out.println(phoneNum);%>" value="<%out.println(phoneNum);%>"/><small></small> <br>
         
 	  
 	
@@ -134,46 +178,52 @@ background-color: #ff6363;
 	</fieldset></div><hr class="dashed">
 	
 	
-	<div class="col-3"> 		<a class="addListTitle">Room type</a> <br>
+	<div class="col-3"> 		<label class="addListTitle">Room type</label> <br>
 	<small>Select the type of room</small><br>
-    <select name = "roomType" size = 5 style="font-size:16px;"required>
-    <option value = "apartment">Apartment</option>
-        <option value = "duplex">Duplex</option>
-        <option value = "sharedRoom">Shared Room</option>
-        <option value = "singleRoom">Single Room</option>
-        <option value = "studio">Studio</option>
+    <select class="custom-select" name = "roomType" size = 5 style="font-size:16px;">
+    	<option value="<%out.println(roomType);%>" disabled selected> <%out.println(roomType);%> </option>
+    <option value = "Apartment">Apartment</option>
+        <option value = "Duplex">Duplex</option>
+        <option value = "Shared Room">Shared Room</option>
+        <option value = "Single Room">Single Room</option>
+        <option value = "Studio">Studio</option>
     </select> <br><br><hr><br>
-    <a class="addListTitle">
-    	Price </a><br>
+    <label class="addListTitle">
+    	Price </label><br>
     	<small>Set pricing per month</small><br>
-        <input type="text" name="price" size="20" required/> <br><br>
-       <a class="addListTitle"> Number of Bedrooms </a><br>
+        <input type="number" class="form-control" name="price" placeholder="$<%out.println(price);%>" value="<%out.println(price);%>" > <br>
+       <label class="addListTitle"> Number of Bedrooms </label><br>
       <small> Set number of bedrooms</small><br>
-        <input type="text" name="bedroomNum"  size="20" required/> <br><br>
-       <a class="addListTitle"> Number of Bathrooms</a> <br>
+        <input type="number" class="form-control" name="bedroomNum" placeholder="<%out.println(roomNum);%>" value="<%out.println(roomNum);%>"> <br>
+       <label class="addListTitle"> Number of Bathrooms</label> <br>
        <small>Set number of bathrooms</small> <br>
-        <input type="text" name="bathroomNum"  size="20" required/> <br><br>
-       <a class="addListTitle"> Lease length</a> <br>
+        <input type="number" class="form-control" name="bathroomNum" placeholder="<%out.println(bathroomNum);%>" value="<%out.println(bathroomNum);%>"> <br>
+       <label class="addListTitle"> Lease length</label> <br>
       <small> Set lease length for total months</small><br>
-        <input type="text" name="zipcode"  size="20" required/>
+      
+        <input type="number" class="form-control" name="leaseLength" id="leaseTimeFrame" placeholder="<%out.println(leaseTimeFrame);%>" value="<%out.println(leaseTimeFrame);%>">
          </div>
          
          
          
-        <a class="col-5"> 
+        <div class="col-5"> 
          <fieldset>
        <legend style ="font-size:24px;color: #ff6363;"> Address </legend><br>
        
-        Street Address: 
-        <input type="text" name="streetAddress" size=23 required/> 
-        Apartment #:
-                <input type="text" name="aptNum" size=5 required/> 
-       <br><br><br> City:
-                <input type="text" name="city" size=20 required/>
-		State:
+        Street Address
+    	<input type="text" class="form-control" name="streetAddress" id="streetAddress"  placeholder="<%out.println(streetAddress);%>" value="<%out.println(streetAddress);%>">
+       <br>
+	<div class=" col-5">
+      City
+      <input type="text" class="form-control" name="city" id="city" placeholder="<%out.println(city);%>" value="<%out.println(city);%>">
+    </div>
+		
+		<div class="col-3">
+		State
 		<%//code below borrowed from https://www.freeformatter.com/usa-state-list-html-select.html
 			//a website that provides free web resources%>
-		<select name="state" style="font-size:16px; width:90px;" required>
+		<select class="form-control" name="state" style="font-size:16px; width:90px;" >
+	<option value="<%out.println(state);%>" disabled selected hidden> <%out.println(state);%> </option>
 	<option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
 	<option value="AZ">Arizona</option>
@@ -225,31 +275,55 @@ background-color: #ff6363;
 	<option value="WV">West Virginia</option>
 	<option value="WI">Wisconsin</option>
 	<option value="WY">Wyoming</option>
-</select>	
+</select>	</div>
+<div class="col-3">
 	Zip Code: 
-	        <input type="text" name="zipcode" maxlength = "5" size=5 style="margin-bottom:40px;" required/> <br>
-	        </fieldset></a>
+	        <input type="number" class="form-control" name="zipcode" id="zipcode" style="margin-bottom:40px;" placeholder="<%out.println(zipCode);%>" maxlength="5"  value="<%out.println(zipCode);%>"/> <br>
+	       </div> </fieldset>
+	       
+	        <div class="col-12">
+        <label for="info" class="addListTitle">Additional Information</label>
+       <textarea name="information" class="form-control" rows="10" cols="40" style="font-size:16px;" placeholder="<%out.println(description);%>" value="<%out.println(description);%>"></textarea></div><br>
+    
+    </div>
 	        
-	    <a class="col-3"> 
-	    <a class="addListTitle">Photo(s): </a><br>
-	<small>*jpeg format only, up to 5 photos per listing* </small><br>
-	<input type="file" name="image1" accept="image/jpeg" required /> <br>
-	<input type="file" name="image2" accept="image/jpeg"  /> <br>
-	<input type="file" name="image3" accept="image/jpeg"  /> <br>
-	<input type="file" name="image4" accept="image/jpeg"  /> <br>
-	<input type="file" name="image5" accept="image/jpeg"  /> <br><br><br>
-	</a>
+	       
+	    <div class="col-3"> 
+	    <label class="addListTitle" style="margin-left: 1%;">Photo(s): </label><br>
+	<small>*jpg format only, up to 5 photos per listing* </small><br>
+	
+	 <%
+	 int image = 1;				
+	 %><br><b>Image(s): </b><br><%
+	        while (rs1.next()){
+				String URL = rs1.getString("photoURL")+".jpg";
+				out.println(URL);
+				%>
+				 	<img src="img/<%out.println(URL);%>" height="200" width="300">
+				 	   			<input type="hidden" name="image<%out.println(image);%>" value="<%out.println(URL);%>">
+				 		<input type="file" name="image<%out.println(image);%>" accept="image/jpg" /> <br><br><br>
+				 	
+				 	 <%
+				 	image++;
+	        }
+				
+				if(image != 5){
+				for (int i = image; i<=5; i++){
+					%>
+				 		<input type="file" name="image<%out.println(image);%>" accept="image/jpg" /> <br>
+				 	
+				 	 <%
+				}
+				}%>
+	</div>
+	
 
 	
 	
         
         
         
-        <a class="col-8">
-        
-       <textarea name="information" rows="15" cols="100" style="font-size:16px;">Enter additional description.</textarea></a><br>
-    
-    
+       
     
     
     
@@ -257,13 +331,28 @@ background-color: #ff6363;
     
     
     <a class="col-9">
-    <input type="submit" id="buttonColor" style="float: right;" value="Submit Listing" onSubmit="return checkValues()"/> 
+    <button type="submit" id="buttonColor" name="submitButton" style="float: right;" onclick=""/>Submit Listing</button>
     <button type="button" id="buttonColor" name="cancelButton" style="float: right; margin-right:25px" onclick="javascript:history.back()">Cancel New Listing</button>
-    </a>
-</form></a>
+    </a></div>
+</form></label>
+
+
+ 
+ 
 	
 	
-	
+	<%
+
+		}
+    
+    
+    
+    stmt.close();
+    con.close();
+ 
+ } catch(SQLException e) {
+	     out.println("SQLException caught: " + e.getMessage()); 
+	 }} %>
 
 </body>
 </html>

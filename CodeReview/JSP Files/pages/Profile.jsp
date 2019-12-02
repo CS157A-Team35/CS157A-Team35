@@ -31,7 +31,13 @@ color: #4B4B4B; }
 </head>
 <body>
 <jsp:include page="navBar.jsp" />
+<% 
+String name=(String)session.getAttribute("username"); 
+out.print("Hello User: You have entered the name: "+name); 
+String userID=(String)session.getAttribute("userID"); 
 
+out.print("User id is "+userID); 
+%> 
 
  <%
  String db = "search4houses";

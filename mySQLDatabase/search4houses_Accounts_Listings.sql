@@ -23,9 +23,9 @@ DROP TABLE IF EXISTS `Accounts_Listings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Accounts_Listings` (
-  `user_id` varchar(50) NOT NULL,
-  `listing_id` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
+  `user_id` varchar(50) DEFAULT NULL,
+  `listing_id` int(11) NOT NULL,
+  PRIMARY KEY (`listing_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -35,7 +35,7 @@ CREATE TABLE `Accounts_Listings` (
 
 LOCK TABLES `Accounts_Listings` WRITE;
 /*!40000 ALTER TABLE `Accounts_Listings` DISABLE KEYS */;
-INSERT INTO `Accounts_Listings` VALUES ('10001','100011'),('10002','100012'),('10003','100013'),('10004','100014'),('10005','100015'),('11111','100001'),('12345','100002'),('23456','100003'),('34567','100004'),('45678','100005'),('56789','100006'),('67890','100007'),('78901','100008'),('89012','100009'),('90123','100010');
+INSERT INTO `Accounts_Listings` VALUES ('7',15),('8',16),('9',17),('10',18),('11',19),('12',20),('13',21),('14',22),('15',23),('16',24),('17',25),('18',26),('19',27),('20',28),('21',29),('1',30),('1',31),('1',32);
 /*!40000 ALTER TABLE `Accounts_Listings` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-28 20:38:42
+-- Dump completed on 2019-12-02  4:09:08

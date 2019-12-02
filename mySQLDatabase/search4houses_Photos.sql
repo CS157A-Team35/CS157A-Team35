@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `Photos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Photos` (
-  `photoID` varchar(45) NOT NULL DEFAULT '10',
+  `photoID` int(11) NOT NULL,
   `photoURL` varchar(45) DEFAULT 'hekkkks',
   PRIMARY KEY (`photoID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -35,7 +35,7 @@ CREATE TABLE `Photos` (
 
 LOCK TABLES `Photos` WRITE;
 /*!40000 ALTER TABLE `Photos` DISABLE KEYS */;
-INSERT INTO `Photos` VALUES ('1','niceone'),('10','a'),('100001','apartment1'),('100002','www.search4houses.com/photos/100002.jpeg'),('100003','www.search4houses.com/photos/100003.jpeg'),('100004','www.search4houses.com/photos/100004.jpeg'),('100005','www.search4houses.com/photos/100005.jpeg'),('100006','www.search4houses.com/photos/100006.jpeg'),('100007','www.search4houses.com/photos/100007.jpeg'),('100008','www.search4houses.com/photos/100008.jpeg'),('100009','www.drive.google.com/photo100009.jpeg'),('100010','www.search4houses.com/photos/100010'),('100011','mobileupload4006100011'),('100012','mobileupload6815100012'),('100013','www.drive.google.com/photo100013.jpeg'),('100014','www.drive.google.com/photo100014.jpeg'),('100015','www.drive.google.com/photo100015.jpeg'),('100016','mobileupoad7314100016'),('100017','mobileupoad7314100017'),('100018','mobileupoad7314100018'),('100019','mobileupoad7314100019'),('100020','mobileupoad7314100020'),('100021','mobileupoad7314100021'),('100022','www.search4houses.com/photos/100022.jpeg'),('100023','www.search4houses.com/photos/100023.jpeg'),('100024','www.search4houses.com/photos/100024.jpeg'),('100025','mobileupoad7314100025'),('100026','www.search4houses.com/photos/100026.jpeg'),('100027','www.google.com/photos/neigborhood100027.jpg'),('100028','www.google.com/photos/apartment100028.jpg'),('100029','www.search4houses.com/photos/100029.jpeg'),('100030','sharedd'),('100031','www.google.com/photos/apartment100031.jpg'),('100032','studioo'),('100033','www.search4houses.com/photos/100033.jpeg'),('11','b'),('12','c'),('13','d'),('14','e'),('2','studio'),('3','cool'),('4','image'),('5','cute'),('6','wow'),('7','banana'),('8','duplex'),('9','duplezz');
+INSERT INTO `Photos` VALUES (1,'niceone'),(2,'studio'),(3,'cool'),(4,'image'),(5,'cute'),(6,'wow'),(7,'banana'),(8,'duplex'),(9,'duplezz'),(10,'a'),(11,'b'),(12,'c'),(13,'d'),(14,'e'),(15,'apartinside'),(16,'bathrooom'),(17,'apartment1'),(18,'www.search4houses.com/photos/100002.jpeg'),(19,'www.search4houses.com/photos/100003.jpeg'),(20,'www.search4houses.com/photos/100004.jpeg'),(21,'www.search4houses.com/photos/100005.jpeg'),(22,'www.search4houses.com/photos/100006.jpeg'),(23,'www.search4houses.com/photos/100007.jpeg'),(24,'www.search4houses.com/photos/100008.jpeg'),(25,'www.drive.google.com/photo100009.jpeg'),(26,'www.search4houses.com/photos/100010'),(27,'mobileupload4006100011'),(28,'mobileupload6815100012'),(29,'www.drive.google.com/photo100013.jpeg'),(30,'www.drive.google.com/photo100014.jpeg'),(31,'www.drive.google.com/photo100015.jpeg'),(32,'mobileupoad7314100016'),(33,'mobileupoad7314100017'),(34,'mobileupoad7314100018'),(35,'mobileupoad7314100019'),(36,'mobileupoad7314100020'),(37,'mobileupoad7314100021'),(38,'www.search4houses.com/photos/100022.jpeg'),(39,'www.search4houses.com/photos/100023.jpeg'),(40,'www.search4houses.com/photos/100024.jpeg'),(41,'mobileupoad7314100025'),(42,'www.search4houses.com/photos/100026.jpeg'),(43,'www.google.com/photos/neigborhood100027.jpg'),(44,'www.google.com/photos/apartment100028.jpg'),(45,'www.search4houses.com/photos/100029.jpeg'),(46,'sharedd'),(47,'www.google.com/photos/apartment100031.jpg'),(48,'studioo'),(49,'www.search4houses.com/photos/100033.jpeg'),(50,'duplezz\r\n'),(51,'e'),(52,'image\r\n'),(53,'e\r\n'),(54,'image\r\n'),(55,'e\r\n');
 /*!40000 ALTER TABLE `Photos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-28 20:38:44
+-- Dump completed on 2019-12-02  4:09:09

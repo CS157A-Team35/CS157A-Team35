@@ -34,8 +34,9 @@
 	<a href = "FavoriteList.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Favorites List</strong></a> |
 	<a href  = "AddListing.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Add Listing</strong></a>
 	 <form name = "zipSearch" action="Listings.jsp" method="GET" onSubmit="return checkSearch()">
-    <input type="text" placeholder="Search by zipcode.." name="zipcode" required/>
+    <input type="number" placeholder="Search by zipcode.." name="zipcode" required/>
     <input type="submit" style="border-radius: 2px; " value="Search" />
+    
 </form>
 	</div>
 	<hr>

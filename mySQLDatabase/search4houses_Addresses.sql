@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `Addresses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Addresses` (
-  `addrID` varchar(50) NOT NULL,
+  `addrID` int(11) NOT NULL,
   `streetAddress` varchar(45) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
   `state` varchar(45) DEFAULT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE `Addresses` (
 
 LOCK TABLES `Addresses` WRITE;
 /*!40000 ALTER TABLE `Addresses` DISABLE KEYS */;
-INSERT INTO `Addresses` VALUES ('1','123 Sesame Street','San Jose','CA','95111'),('10','321 Chicken Way','San Jose','CA','95111'),('100001','123 Sesame Street','San Jose','CA','95131'),('100002','234 Main Street','San Jose','CA','95110'),('100003','345 Fumia Place','San Jose','CA','95136'),('100004','456 Ryland Court','San Jose','CA','95152'),('100005','567 Scott Street','San Jose','CA','95190'),('100006','678 Central Road','San Jose','CA','95196'),('100007','789 Washington Road','San Jose','CA','95106'),('100008','111 San Fernando','San Jose','CA','94088'),('100009','112 Paseo Padre','San Jose','CA','95002'),('100010','113 Osgood Road','San Jose','CA','95054'),('100011','114 Santa Clara Street','San Jose','CA','95050'),('100012','115 7th Street','San Jose','CA','94560'),('100013','116 Los Gatos Boulevard','San Jose','CA','95123'),('100014','117 Fremont Street','San Jose','CA','95151'),('100015','118 Santa Cruz Road','San Jose','CA','95123'),('11','423 Mamayack Drive','San Jose','CA','95111'),('12','4938 Tiktok Street','San Jose','CA','95111'),('13','4367 Pogs Drive','San Jose','CA','95111'),('14','232 Pepe Way','San Jose','CA','95111'),('2','345 Hangry Street','San Jose','CA','95111'),('3','123 Apple Drive','San Jose','CA','95111'),('4','9473 Saint Row','San Jose','CA','95111'),('5','456 Obama Drive','San Jose','CA','95111'),('6','92 Good Street','San Jose','CA','95111'),('7','745 N Abel Street','San Jose','CA','95111'),('8','1771 N Milpitas Boulevard ','San Jose','CA','95111'),('9','38101 Kearsarge Mill Road','San Jose','CA','95111');
+INSERT INTO `Addresses` VALUES (1,'123 Sesame Street','San Jose','CA','95111'),(2,'345 Hangry Street','San Jose','CA','95111'),(3,'123 Apple Drive','San Jose','CA','95111'),(4,'9473 Saint Row','San Jose','CA','95111'),(5,'456 Obama Drive','San Jose','CA','95111'),(6,'92 Good Street','San Jose','CA','95111'),(7,'745 N Abel Street','San Jose','CA','95111'),(8,'1771 N Milpitas Boulevard ','San Jose','CA','95111'),(9,'38101 Kearsarge Mill Road','San Jose','CA','95111'),(10,'321 Chicken Way','San Jose','CA','95111'),(11,'423 Mamayack Drive','San Jose','CA','95111'),(12,'4938 Tiktok Street','San Jose','CA','95111'),(13,'4367 Pogs Drive','San Jose','CA','95111'),(14,'232 Pepe Way','San Jose','CA','95111'),(15,'123 Sesame Street','San Jose','CA','95131'),(16,'234 Main Street','San Jose','CA','95110'),(17,'345 Fumia Place','San Jose','CA','95136'),(18,'456 Ryland Court','San Jose','CA','95152'),(19,'567 Scott Street','San Jose','CA','95190'),(20,'678 Central Road','San Jose','CA','95196'),(21,'789 Washington Road','San Jose','CA','95106'),(22,'111 San Fernando','San Jose','CA','94088'),(23,'112 Paseo Padre','San Jose','CA','95002'),(24,'113 Osgood Road','San Jose','CA','95054'),(25,'114 Santa Clara Street','San Jose','CA','95050'),(26,'115 7th Street','San Jose','CA','94560'),(27,'116 Los Gatos Boulevard','San Jose','CA','95123'),(28,'117 Fremont Street','San Jose','CA','95151'),(29,'118 Santa Cruz Road','San Jose','CA','95123'),(30,'8','8','AL\r\n','8'),(31,'85','843','AL\r\n','83221'),(32,'85 Bob Street\r\n','Zeem\r\n','CO\r\n','74821\r\n');
 /*!40000 ALTER TABLE `Addresses` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-28 20:38:43
+-- Dump completed on 2019-12-02  4:09:08

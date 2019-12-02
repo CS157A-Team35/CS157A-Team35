@@ -23,10 +23,10 @@ DROP TABLE IF EXISTS `Listings_AdditionalContact`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Listings_AdditionalContact` (
-  `listing_id` varchar(50) NOT NULL,
+  `listing_id` int(50) unsigned NOT NULL AUTO_INCREMENT,
   `addContact_id` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`listing_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=100019 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `Listings_AdditionalContact` (
 
 LOCK TABLES `Listings_AdditionalContact` WRITE;
 /*!40000 ALTER TABLE `Listings_AdditionalContact` DISABLE KEYS */;
-INSERT INTO `Listings_AdditionalContact` VALUES ('10000','10016'),('100001','10019'),('100002','10024'),('1000026','10023'),('100003','10025'),('100004','10018'),('1000047','10029'),('100006','10028'),('1000072','10026'),('100008','10017'),('100009','10020'),('100015','10027'),('1000151','10030'),('1000215','10022'),('100053','10021');
+INSERT INTO `Listings_AdditionalContact` VALUES (1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),(6,'6'),(7,'7'),(8,'8'),(9,'9'),(10,'10'),(25,'31'),(31,'10031'),(32,'32');
 /*!40000 ALTER TABLE `Listings_AdditionalContact` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-28 20:38:43
+-- Dump completed on 2019-12-02  4:09:08

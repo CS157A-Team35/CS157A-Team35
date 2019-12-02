@@ -115,6 +115,7 @@ z-index: 1;
 .addListTitle {
 	color: #ff6363;
 	font-size: 24px;
+	
 }
 
 
@@ -135,7 +136,9 @@ input:focus{
 	background-color: #ffd1cf;
 }
 
+
 ul {
+
   list-style-type: none;
   margin: 0;
   padding: 0;

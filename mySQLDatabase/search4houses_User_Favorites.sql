@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `User_Favorites`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `User_Favorites` (
-  `user_id` varchar(50) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `list_id` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -35,7 +35,7 @@ CREATE TABLE `User_Favorites` (
 
 LOCK TABLES `User_Favorites` WRITE;
 /*!40000 ALTER TABLE `User_Favorites` DISABLE KEYS */;
-INSERT INTO `User_Favorites` VALUES ('10001','10001'),('10002','10002'),('10003','10003'),('10004','10004'),('10005','10005'),('10006','10006'),('10007','10007'),('10008','10008'),('10009','10009'),('10010','10010'),('100125','10011'),('100145','10014'),('10015','10012'),('100155','10015'),('100315','10013');
+INSERT INTO `User_Favorites` VALUES (7,'7'),(8,'8'),(9,'9'),(10,'10'),(11,'11'),(12,'12'),(13,'13'),(14,'14'),(15,'15'),(16,'16'),(17,'17'),(18,'18'),(19,'19'),(20,'20'),(21,'21');
 /*!40000 ALTER TABLE `User_Favorites` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-28 20:38:45
+-- Dump completed on 2019-12-02  4:09:10
