@@ -48,6 +48,7 @@ color: #4B4B4B; }
  <%
  
  }
+ else{
 	 
  
 	 String db = "search4houses";
@@ -82,7 +83,8 @@ color: #4B4B4B; }
 	<!-- here is where we put the profile picture (delete the comments -->
 	<img src = "/html/images/new_user.jpg" alt = "Test Image" width = "100" height = "100" border  = "2"/> <br>
 	<font size = "5"><%=userName%></font><br>
-	<button type = "button">Edit Profile</button>
+	<button onClick = "location.href='ProfileEdit.jsp'" type = button >Edit Profile</button>
+	<button onClick = "location.href='EditListing.jsp'" type = button >Edit Listing</button>
 	
 	<br>
 	<br>
@@ -122,9 +124,14 @@ color: #4B4B4B; }
     con.close();
     } catch(SQLException e) {
     out.println("SQLException caught: " + e.getMessage()); 
-	}
+	}}
 	%>
-	
+	<script>
+	function favoritesList()
+	{
+		
+	}
+	</script>
 	</body>
 	
 </html>
