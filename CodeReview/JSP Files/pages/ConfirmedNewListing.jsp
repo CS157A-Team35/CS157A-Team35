@@ -201,6 +201,8 @@ String bathrooms = request.getParameter("bathroomNum");
 
     
     String URL = request.getParameter("image1");
+		System.out.println(URL);
+
     %><br><b>Image(s):
  	<img src="img/<%out.println(URL);%>" height="200" width="300">
  	   			<input type="hidden" name="image1" value="<%out.println(URL);%>">
@@ -208,6 +210,7 @@ String bathrooms = request.getParameter("bathroomNum");
  	</b> <%
  	if (request.getParameter("image2") != "") {
  		URL =request.getParameter("image2");
+ 		System.out.println(URL);
  		%> <img src="img/<%out.println(URL);%>" height="200" width="300">
  		 	   			<input type="hidden" name="image2" value="<%out.println(URL);%>">
  		<br><%
@@ -249,7 +252,7 @@ String bathrooms = request.getParameter("bathroomNum");
  
     <br><br><button type="submit" id="buttonColor" name="submitButton" onclick="">Submit Listing</button>
 
-    <br><br><button id="buttonColor" onclick="javascript:history.back()">Re-edit</button>
+    <br><br><button type= "button" id="buttonColor" onclick="javascript:history.back()">Re-edit</button>
 
 </div>
 

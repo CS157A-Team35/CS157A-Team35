@@ -254,7 +254,7 @@ background-color: #ff6363;
 	<option value="WY">Wyoming</option>
 </select>	</div>
 <div class="col-3">
-	Zip Code: 
+	ZipCode: 
 	        <input type="text" class="form-control" name="zipcode" id="zipcode" pattern="[0-9]{5}" style="margin-bottom:40px;" placeholder="<%out.println(zipCode);%>" maxlength="5"  value="<%out.println(zipCode);%>" required> <br>
 	       </div> </fieldset>
 	       
@@ -277,7 +277,7 @@ background-color: #ff6363;
 	 %><br><b>Image(s): </b><br><%
 	        while (rs1.next()){
 				String URL = rs1.getString("photoURL")+".jpg";
-				//out.println(URL);
+				//System.out.println(URL);
 				%>
 				 	<img src="img/<%out.println(URL);%>" height="200" width="300">
 				 		 <br><br><br>

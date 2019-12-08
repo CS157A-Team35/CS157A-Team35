@@ -52,7 +52,7 @@ background-color: #ff6363;
      
      %> 
      
-      <form name = "newUser" action="" style="margin-left:5%; margin-right:5%" method="POST" onSubmit="" autocomplete="on">
+      <form name = "newUser" action="RegisterSuccess.jsp" style="margin-left:5%; margin-right:5%" method="POST" onSubmit="" autocomplete="on">
 	<div class="form-group" style="padding-right:20%; padding-left:20%;"><fieldset style="padding:15px;">
 	
 	<legend style ="font-size:24px;color: #ff6363; padding-top: 10px;">New User Registration</legend>
@@ -105,20 +105,21 @@ background-color: #ff6363;
  
   
 
-  System.out.println("hi");
+  //System.out.println("hefefei");
 
   response.sendRedirect("RegisterSuccess.jsp"); 
   } else{
-	  System.out.println("hadi");
-	  System.out.println(rs.getString("email"));
-	  System.out.println(rs.getString("username"));
-	  System.out.println(aUsername);
-	  System.out.println(aEmail);
+	 // System.out.println("hadi");
+	 // System.out.println(rs.getString("email"));
+	 // System.out.println(rs.getString("username"));
+	 // System.out.println(aUsername);
+	 // System.out.println(aEmail);
 	  
-	  
+  	//System.out.println("fefefef");
+
 
 	   if (res==true && res1==true){
-		   System.out.println("hib");
+		  // System.out.println("hib");
 
 		   %>
 			<span id="hint" class="error text-danger"  ><small>Both username and email are already in use</small></span>

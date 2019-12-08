@@ -78,23 +78,22 @@ background-color: #ff6363;
 	String newUserID = Integer.toString(userID);
 	System.out.println(newUserID);
 
-    String redirectURL = "Profile.jsp?userID="+newUserID;
     
 
-	
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+    String email = request.getParameter("email");
+    String name = request.getParameter("name");
+    String phoneNum = request.getParameter("phoneNum");
     
 
     if (request.getParameter("username") != null ||request.getParameter("password") != null ||request.getParameter("name") != null || request.getParameter("email") != null ||  
     		request.getParameter("phoneNum") != null){
+    	System.out.println("fefef");
+
     	
     
 	   // out.println(newGeneratedID);
-	    
-	    String username = request.getParameter("username");
-	    String password = request.getParameter("password");
-	    String email = request.getParameter("email");
-	    String name = request.getParameter("name");
-	    String phoneNum = request.getParameter("phoneNum");
 
 
 			  
@@ -103,8 +102,19 @@ background-color: #ff6363;
 		   stmt2.executeUpdate("INSERT INTO search4houses.Accounts (accID, username, password, fullName, email, phoneNum) VALUES ('"+newUserID+"','"+username+"','"+password+"','"+name+"','"+email+"','"+phoneNum+"');"); 
 		  
 
-		   session.setAttribute("userID",userID); 
-		   session.setAttribute("username",username); 
+		   //session.setAttribute("userID",userID); 
+		   //session.setAttribute("username",username); 
+		  
+		    	System.out.println("bofefeb");
+
+		    	Statement stmt5 = con.createStatement();
+				   stmt5.executeUpdate("INSERT INTO search4houses.Favorites (listID) VALUES ("+newUserID+");");
+				   stmt5.close();
+				   
+				   Statement stmt6 = con.createStatement();
+				   stmt6.executeUpdate("INSERT INTO search4houses.User_Favorites (user_id, list_id) VALUES ("+newUserID+", "+newUserID+");");
+				   stmt6.close();
+
 		    
 		  //Additional Contact
 		    Statement stmt1 = con.createStatement();
@@ -116,42 +126,27 @@ background-color: #ff6363;
 		    		        int newGeneratedContactID = contactID+1;
 		    		        Statement stmt7 = con.createStatement();
 			    			
-			    		    ResultSet rs7 = stmt7.executeQuery("SELECT contactAccID FROM search4houses.AdditionalContacts WHERE email='"+email+"' AND phoneNum='"+phoneNum+"' AND name='"+name+"';"); 		   
+			    		    ResultSet rs7 = stmt7.executeQuery("SELECT contactAccID FROM search4houses.AdditionalContacts WHERE email='"+email+"';"); 		   
 			    		    if (rs7.next()!=true){
-			    		    	Statement stmt5 = con.createStatement();
-			    				   stmt5.executeUpdate("INSERT INTO search4houses.AdditionalContacts (contactAccID, phoneNum, email, name) VALUES ("+newGeneratedContactID+", '"+phoneNum+"', '"+email+"', '"+name+"');");
-			    				   stmt5.close();
+			    		    	System.out.println("bob");
+			    		    	Statement stmt8 = con.createStatement();
+			    				   stmt8.executeUpdate("INSERT INTO search4houses.AdditionalContacts (contactAccID, phoneNum, email, name) VALUES ("+newGeneratedContactID+", '"+phoneNum+"', '"+email+"', '"+name+"');");
+			    				   stmt8.close();
 
 			    		    }
-			    		    
-			    		    
-			    		    ResultSet rs6 = stmt7.executeQuery("SELECT listID FROM search4houses.Favorites  ORDER BY listID DESC LIMIT 1;"); 		   
-			    		    if (rs6.next()!=true){
-			    		    	 int favListID = Integer.parseInt(rs1.getString("listID"));
-				    		        int newfavListID = favListID+1;
-			    		    	
-			    		    	Statement stmt5 = con.createStatement();
-			    				   stmt5.executeUpdate("INSERT INTO search4houses.Favorites (listID) VALUES ("+newfavListID+");");
-			    				   stmt5.close();
-			    				   
-			    				   Statement stmt6 = con.createStatement();
-			    				   stmt6.executeUpdate("INSERT INTO search4houses.User_Favorites (user_id, list_id) VALUES ("+newUserID+", "+newfavListID+");");
-			    				   stmt6.close();
+			    		    Statement stmt3 = con.createStatement();
 
-			    		    }
+			    		    //Favorites
+			    		    ResultSet rs6 = stmt3.executeQuery("SELECT listID FROM search4houses.Favorites ORDER BY listID DESC LIMIT 1;"); 		   
 			    		    
-		    		       
+			    		    
+		    		       		stmt3.close();
 		    				    stmt7.close();
 
 
 		    				    stmt1.close();
 		    				    stmt2.close();
 
-
-		    		    
-		    
-		    
-		   
 
 		    
 		    }
@@ -175,7 +170,8 @@ background-color: #ff6363;
  
  //String confirmed = "window.location.href = 'Listing.jsp?listing="+newGeneratedID+"'";
 
- 
+     String redirectURL = "LogIn.jsp";
+
 //  <br><br><input type="button" name="submitBtn" id="buttonColor" onclick="<%out.println(confirmed);" value="Confirm">
 %>       
 	<div class="col-3" style="margin-left:40%; margin-right:5%; ">

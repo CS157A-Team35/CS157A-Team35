@@ -127,11 +127,12 @@ background-color: #ff6363;
 		    
 		   //Photo image1   
 		   Statement stmt2 = con.createStatement();
-		    ResultSet rs2 = stmt2.executeQuery("SELECT photoID FROM search4houses.PHotos ORDER BY photoID DESC LIMIT 1;"); 		   
+		    ResultSet rs2 = stmt2.executeQuery("SELECT photoID FROM search4houses.PHotos ORDER BY photoID DESC LIMIT 1;"); 		
+		    int newGeneratedPhotoID =0;
 		    if (rs2.next()==true){
 
 		    	 int photoID = Integer.parseInt(rs2.getString("photoID"));
-		        int newGeneratedPhotoID = photoID+1;
+		         newGeneratedPhotoID = photoID+1;
 		        
 		        Statement stmt3 = con.createStatement();
 				   stmt3.executeUpdate("INSERT INTO search4houses.Photos (photoID, photoURL) VALUES ("+newGeneratedPhotoID+", '"+image1+"');");
@@ -204,6 +205,8 @@ Statement stmt3 = con.createStatement();
 
 		    		    }
 		    		    
+		    		    
+		    		    
 		    
 		    
 		    if (request.getParameter("image2") != null){
@@ -211,12 +214,10 @@ Statement stmt3 = con.createStatement();
 			    image2 = image2.replace(".jpg","");
 
 			  //Photo image2  
-				   Statement stmt5 = con.createStatement();
-				    ResultSet rs5 = stmt5.executeQuery("SELECT photoID FROM search4houses.PHotos ORDER BY photoID DESC LIMIT 1;"); 		   
-				    if (rs5.next()==true){
+				 
 
 				    	 int photoID = Integer.parseInt(rs2.getString("photoID"));
-				        int newGeneratedPhotoID = photoID+2;
+				        newGeneratedPhotoID = newGeneratedPhotoID+1;
 				        
 				        Statement stmt6 = con.createStatement();
 						   stmt6.executeUpdate("INSERT INTO search4houses.Photos (photoID, photoURL) VALUES ("+newGeneratedPhotoID+", '"+image2+"');");
@@ -228,8 +229,7 @@ Statement stmt3 = con.createStatement();
 						    stmt7.close();
 
 
-				    }
-				    stmt5.close();
+				    
 
 		    }
 		    if (request.getParameter("image3") != null){
@@ -242,7 +242,7 @@ Statement stmt3 = con.createStatement();
 				    if (rs5.next()==true){
 
 				    	 int photoID = Integer.parseInt(rs2.getString("photoID"));
-				        int newGeneratedPhotoID = photoID+3;
+				         newGeneratedPhotoID = photoID+3;
 				        
 				        Statement stmt6 = con.createStatement();
 						   stmt6.executeUpdate("INSERT INTO search4houses.Photos (photoID, photoURL) VALUES ("+newGeneratedPhotoID+", '"+image2+"');");
@@ -267,7 +267,7 @@ Statement stmt3 = con.createStatement();
 				    if (rs5.next()==true){
 
 				    	 int photoID = Integer.parseInt(rs2.getString("photoID"));
-				        int newGeneratedPhotoID = photoID+4;
+				         newGeneratedPhotoID = photoID+4;
 				        
 				        Statement stmt6 = con.createStatement();
 						   stmt6.executeUpdate("INSERT INTO search4houses.Photos (photoID, photoURL) VALUES ("+newGeneratedPhotoID+", '"+image2+"');");
@@ -291,7 +291,7 @@ Statement stmt3 = con.createStatement();
 				    if (rs5.next()==true){
 
 				    	 int photoID = Integer.parseInt(rs2.getString("photoID"));
-				        int newGeneratedPhotoID = photoID+5;
+				         newGeneratedPhotoID = photoID+5;
 				        
 				        Statement stmt6 = con.createStatement();
 						   stmt6.executeUpdate("INSERT INTO search4houses.Photos (photoID, photoURL) VALUES ("+newGeneratedPhotoID+", '"+image2+"');");

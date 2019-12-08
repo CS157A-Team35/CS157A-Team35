@@ -78,13 +78,13 @@ background-color: #ff6363;
      
 
  		Statement stmt3 = con.createStatement();
-		ResultSet rs3 = stmt3.executeQuery("SELECT * FROM search4houses.AdditionalContacts WHERE contactAccID="+userID+";");  //insert listingID here
+		ResultSet rs3 = stmt3.executeQuery("SELECT * FROM search4houses.Accounts WHERE accID="+userID+";");  //insert listingID here
 			   
 if (rs3.next()==true){
 
 String phoneNum = rs3.getString("phoneNum");
 String email = rs3.getString("email");
-String name = rs3.getString("name");
+String name = rs3.getString("fullName");
 
  %>
 
