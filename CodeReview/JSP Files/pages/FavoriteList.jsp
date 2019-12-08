@@ -83,21 +83,24 @@ color: #4B4B4B; }
  		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","newpassword");
  		String userID = (String)session.getAttribute("userID");
  		
- 		//String query = ("SELECT listing1ID, listing2ID, listing3ID, listing4ID, listing5ID FROM search4houses.favorites, search4houses.user_favorites WHERE search4houses.user_favorites.user_id = " + userID + " AND search4houses.favorites.listID = search4houses.user_favorites.list_id");								
- 		String query1 = ("Select * FROM listings, favorites WHERE (SELECT listing1ID FROM search4houses.favorites, search4houses.user_favorites WHERE search4houses.user_favorites.user_id = "+ userID + " AND search4houses.favorites.listID = search4houses.user_favorites.list_id) = listings.listingID");
  		
  		Statement stmt = con.createStatement();
- 		ResultSet rs = stmt.executeQuery(query1);
- 		
+
  		int rankCounter = 0;
- 		while(rs.next() == true){
- %>
- 		<% rankCounter = rankCounter+1;
- 		String roomType = rs.getString("roomType");
- 		int price = rs.getInt("price");
- 		int leaseTimeFrame = rs.getInt("leaseTimeFrame");
- 		int roomNumber = rs.getInt("roomNum");
- 		int bathNumber = rs.getInt("bathroomNum");%>
+ 		while(rankCounter < 5){
+ 	%>
+ 		<% 	rankCounter = rankCounter+1;
+ 			String query1 = ("Select * FROM listings, favorites WHERE (SELECT listing" + rankCounter + "ID FROM search4houses.favorites, search4houses.user_favorites WHERE search4houses.user_favorites.user_id = "+ userID + " AND search4houses.favorites.listID = search4houses.user_favorites.list_id) = listings.listingID");
+
+ 			ResultSet rs = stmt.executeQuery(query1);
+ 			
+	 		rs.next();
+	 		String roomType = rs.getString("roomType");
+	 		int price = rs.getInt("price");
+	 		int leaseTimeFrame = rs.getInt("leaseTimeFrame");
+	 		int roomNumber = rs.getInt("roomNum");
+	 		int bathNumber = rs.getInt("bathroomNum");
+ 		%>
  		<tr><td><%=rankCounter%></td>
 			<td><%=roomType%></td>
 			<td><%=price%></td>
