@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.17, for macos10.14 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: search4houses
+-- Host: 127.0.0.1    Database: search4houses
 -- ------------------------------------------------------
 -- Server version	8.0.17
 
@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `User_Favorites`
+-- Table structure for table `user_favorites`
 --
 
-DROP TABLE IF EXISTS `User_Favorites`;
+DROP TABLE IF EXISTS `user_favorites`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `User_Favorites` (
+CREATE TABLE `user_favorites` (
   `user_id` int(11) NOT NULL,
   `list_id` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
@@ -30,13 +30,13 @@ CREATE TABLE `User_Favorites` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `User_Favorites`
+-- Dumping data for table `user_favorites`
 --
 
-LOCK TABLES `User_Favorites` WRITE;
-/*!40000 ALTER TABLE `User_Favorites` DISABLE KEYS */;
-INSERT INTO `User_Favorites` VALUES (1,'1'),(7,'7'),(8,'8'),(9,'9'),(10,'10'),(11,'11'),(12,'12'),(13,'13'),(14,'14'),(15,'15'),(16,'16'),(17,'17'),(18,'18'),(19,'19'),(20,'20'),(21,'21');
-/*!40000 ALTER TABLE `User_Favorites` ENABLE KEYS */;
+LOCK TABLES `user_favorites` WRITE;
+/*!40000 ALTER TABLE `user_favorites` DISABLE KEYS */;
+INSERT INTO `user_favorites` VALUES (1,'1'),(7,'7'),(8,'8'),(9,'9'),(10,'10'),(11,'11'),(12,'12'),(13,'13'),(14,'14'),(15,'15'),(16,'16'),(17,'17'),(18,'18'),(19,'19'),(20,'20'),(21,'21'),(22,'22');
+/*!40000 ALTER TABLE `user_favorites` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-08  0:48:44
+-- Dump completed on 2019-12-08  1:12:43

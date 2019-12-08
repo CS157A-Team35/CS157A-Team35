@@ -126,12 +126,7 @@ color: #4B4B4B; }
     out.println("SQLException caught: " + e.getMessage()); 
 	}}
 	%>
-	<script>
-	function favoritesList()
-	{
-		
-	}
-	</script>
+	
 	</body>
 	
 </html>
