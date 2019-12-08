@@ -107,6 +107,8 @@ background-color: #ff6363;
 		  
 		    	System.out.println("bofefeb");
 
+		    	
+		    	//Favorites
 		    	Statement stmt5 = con.createStatement();
 				   stmt5.executeUpdate("INSERT INTO search4houses.Favorites (listID) VALUES ("+newUserID+");");
 				   stmt5.close();
@@ -116,40 +118,7 @@ background-color: #ff6363;
 				   stmt6.close();
 
 		    
-		  //Additional Contact
-		    Statement stmt1 = con.createStatement();
-		    			
-		    		    ResultSet rs1 = stmt1.executeQuery("SELECT contactAccID FROM search4houses.AdditionalContacts ORDER BY contactAccID DESC LIMIT 1;"); 		   
-		    		    if (rs1.next()==true){
-
-		    		    	 int contactID = Integer.parseInt(rs1.getString("contactAccID"));
-		    		        int newGeneratedContactID = contactID+1;
-		    		        Statement stmt7 = con.createStatement();
-			    			
-			    		    ResultSet rs7 = stmt7.executeQuery("SELECT contactAccID FROM search4houses.AdditionalContacts WHERE email='"+email+"';"); 		   
-			    		    if (rs7.next()!=true){
-			    		    	System.out.println("bob");
-			    		    	Statement stmt8 = con.createStatement();
-			    				   stmt8.executeUpdate("INSERT INTO search4houses.AdditionalContacts (contactAccID, phoneNum, email, name) VALUES ("+newGeneratedContactID+", '"+phoneNum+"', '"+email+"', '"+name+"');");
-			    				   stmt8.close();
-
-			    		    }
-			    		    Statement stmt3 = con.createStatement();
-
-			    		    //Favorites
-			    		    ResultSet rs6 = stmt3.executeQuery("SELECT listID FROM search4houses.Favorites ORDER BY listID DESC LIMIT 1;"); 		   
-			    		    
-			    		    
-		    		       		stmt3.close();
-		    				    stmt7.close();
-
-
-		    				    stmt1.close();
-		    				    stmt2.close();
-
-
-		    
-		    }
+		 
 
 		    stmt.close();
 		   
