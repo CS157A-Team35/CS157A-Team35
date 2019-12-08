@@ -87,6 +87,12 @@ color: #4B4B4B; }
  		Statement stmt = con.createStatement();
 
  		int rankCounter = 0;
+ 		String roomType = null;
+ 		String price = null;
+ 		String leaseTimeFrame = null;
+ 		String roomNumber = null;
+ 		String bathNumber = null;
+ 		
  		while(rankCounter < 5){
  	%>
  		<% 	rankCounter = rankCounter+1;
@@ -95,11 +101,16 @@ color: #4B4B4B; }
  			ResultSet rs = stmt.executeQuery(query1);
  			
 	 		rs.next();
-	 		String roomType = rs.getString("roomType");
-	 		int price = rs.getInt("price");
-	 		int leaseTimeFrame = rs.getInt("leaseTimeFrame");
-	 		int roomNumber = rs.getInt("roomNum");
-	 		int bathNumber = rs.getInt("bathroomNum");
+	 	
+	 		if(rs.next()) 
+	 		{
+	 		 roomType = rs.getString("roomType");
+	 		 price = rs.getString("price");
+	 		 leaseTimeFrame = rs.getString("leaseTimeFrame");
+	 		 roomNumber = rs.getString("roomNum");
+	 		 bathNumber = rs.getString("bathroomNum");
+	 		
+ 		
  		%>
  		<tr><td><%=rankCounter%></td>
 			<td><%=roomType%></td>
@@ -108,7 +119,7 @@ color: #4B4B4B; }
 			<td><%=roomNumber%></td>
 			<td><%=bathNumber%></td>
 		</tr>
- 		
+ 		<%} %>
  <%}
  		stmt.close();
  		
