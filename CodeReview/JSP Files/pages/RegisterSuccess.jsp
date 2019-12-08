@@ -102,6 +102,9 @@ background-color: #ff6363;
 	        Statement stmt2 = con.createStatement();
 		   stmt2.executeUpdate("INSERT INTO search4houses.Accounts (accID, username, password, fullName, email, phoneNum) VALUES ('"+newUserID+"','"+username+"','"+password+"','"+name+"','"+email+"','"+phoneNum+"');"); 
 		  
+
+		   session.setAttribute("userID",userID); 
+		   session.setAttribute("username",username); 
 		    
 		  //Additional Contact
 		    Statement stmt1 = con.createStatement();
@@ -120,6 +123,23 @@ background-color: #ff6363;
 			    				   stmt5.close();
 
 			    		    }
+			    		    
+			    		    
+			    		    ResultSet rs6 = stmt7.executeQuery("SELECT listID FROM search4houses.Favorites  ORDER BY listID DESC LIMIT 1;"); 		   
+			    		    if (rs6.next()!=true){
+			    		    	 int favListID = Integer.parseInt(rs1.getString("listID"));
+				    		        int newfavListID = favListID+1;
+			    		    	
+			    		    	Statement stmt5 = con.createStatement();
+			    				   stmt5.executeUpdate("INSERT INTO search4houses.Favorites (listID) VALUES ("+newfavListID+");");
+			    				   stmt5.close();
+			    				   
+			    				   Statement stmt6 = con.createStatement();
+			    				   stmt6.executeUpdate("INSERT INTO search4houses.User_Favorites (user_id, list_id) VALUES ("+newUserID+", "+newfavListID+");");
+			    				   stmt6.close();
+
+			    		    }
+			    		    
 		    		       
 		    				    stmt7.close();
 

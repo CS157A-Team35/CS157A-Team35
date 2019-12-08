@@ -54,13 +54,19 @@ background-color: #ff6363;
 
       <form name = "returningUser" action="" style="margin-left:5%; margin-right:5%" method="POST" onSubmit="" autocomplete="on">
   <div class="form-group"  style="padding-right:30%; padding-left:30%;">
-    <label for="usernameTitle">Email address</label>
-    <input type="username" class="form-control" id="username" name="username"  placeholder="Username" required>
+    <label for="usernameTitle">Username</label>
+          <div class="input-group">
+    
+    <div class="input-group-prepend">
+          <span class="input-group-text">@</span>
+        </div>
+    <input type="text" class="form-control" id="username" name="username"  placeholder="Username" required>
+    </div>
     <small class="text-muted">Enter your username</small>
     <br><br>
     <label for="passwordTitle">Password</label>
     <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-    <small id="passwordHint" class="text-muted">Do not share your password with anyone else</small>
+    <small id="passwordHint"  class="text-muted">Do not share your password with anyone else</small>
     
     <br><br>
   </div>

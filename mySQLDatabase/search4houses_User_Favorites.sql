@@ -35,7 +35,7 @@ CREATE TABLE `User_Favorites` (
 
 LOCK TABLES `User_Favorites` WRITE;
 /*!40000 ALTER TABLE `User_Favorites` DISABLE KEYS */;
-INSERT INTO `User_Favorites` VALUES (7,'7'),(8,'8'),(9,'9'),(10,'10'),(11,'11'),(12,'12'),(13,'13'),(14,'14'),(15,'15'),(16,'16'),(17,'17'),(18,'18'),(19,'19'),(20,'20'),(21,'21');
+INSERT INTO `User_Favorites` VALUES (1,'1'),(7,'7'),(8,'8'),(9,'9'),(10,'10'),(11,'11'),(12,'12'),(13,'13'),(14,'14'),(15,'15'),(16,'16'),(17,'17'),(18,'18'),(19,'19'),(20,'20'),(21,'21');
 /*!40000 ALTER TABLE `User_Favorites` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-02  4:09:10
+-- Dump completed on 2019-12-08  0:48:44

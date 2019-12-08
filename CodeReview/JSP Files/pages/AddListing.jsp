@@ -15,32 +15,6 @@
 
 
 
-
-function disableAddContact(){
-
-	if (document.getElementById("userContactInfo").checked = true){
-		
-		document.getElementById("contactName").disabled = true;
-		document.getElementById("contactName").value = "";
-		document.getElementById("email").disabled = true;
-		document.getElementById("email").value = "";
-		document.getElementById("phoneNum").disabled = true;
-		document.getElementById("phoneNum").value = "";
-
-
-	} 
-	}
-function enableAddContact(){
-if (document.getElementById("aDiffContact").checked = true){
-		
-		document.getElementById("contactName").disabled = false;
-		document.getElementById("email").disabled = false;
-		document.getElementById("phoneNum").disabled = false;
-
-	}
-}
-
-
 </script>
 
 
@@ -92,7 +66,8 @@ background-color: #ff6363;
  
  
  String db = "search4houses";
- String user;
+ String userID = session.getAttribute("userID").toString();
+ System.out.println("heeg"+userID);
  String addressID;
  try {
      
@@ -102,7 +77,15 @@ background-color: #ff6363;
  		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","newpassword");
      
 
-     
+ 		Statement stmt3 = con.createStatement();
+		ResultSet rs3 = stmt3.executeQuery("SELECT * FROM search4houses.AdditionalContacts WHERE contactAccID="+userID+";");  //insert listingID here
+			   
+if (rs3.next()==true){
+
+String phoneNum = rs3.getString("phoneNum");
+String email = rs3.getString("email");
+String name = rs3.getString("name");
+
  %>
 
 
@@ -123,16 +106,14 @@ background-color: #ff6363;
 	<div  style="padding-right:20%; padding-left:20%;"><fieldset style="padding:15px;">
 	
 	<legend style ="font-size:24px;color: #ff6363; padding-top: 10px;">Contact Info</legend>
-	  <input type="radio" class="form-check-input" name="contactInfo" value="userContact" id="userContactInfo" onclick="if(this.checked){disableAddContact()}" > Use mine<br>
-	  <input type="radio" class="form-check-input" name="contactInfo" value="diffContact" id="aDiffContact" onclick="if(this.checked){enableAddContact()}">Another Contact<br>
-	  <br>Contact Name: <br>
-        <input type="text" class="form-control" name="contactName" id="contactName" size=50 required disabled placeholder="FirstName LastName"/> <br>
+	 Contact Name: <br>
+        <input type="text" class="form-control" name="contactName" id="contactName" size=50 required  placeholder="FirstName LastName" value="<%out.println(name);%>"/> <br>
       Email Address: <br>
-        <input type="email" class="form-control" name="email" id="email" size=60 required disabled placeholder="123@abc.com"/> <small></small><br>  
+        <input type="email" class="form-control" name="email" id="email" size=60 required  placeholder="123@abc.com" value="<%out.println(email);%>"/> <small></small><br>  
         Phone Number: <br>
-        <input type="tel" class="form-control" name="phoneNum" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phoneNum" size=30 required disabled placeholder="123-456-7890"/><small></small> <br>
+        <input type="tel" class="form-control" name="phoneNum" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phoneNum" size=30 required  placeholder="123-456-7890" value="<%out.println(phoneNum);%>"/><small></small> <br>
         
-	  
+	  <%} %>
 	
 	
 	</fieldset></div><hr class="dashed">
@@ -258,7 +239,8 @@ background-color: #ff6363;
         
         <a class="col-8">
         <label for="info" class="addListTitle">Additional Information</label>
-       <textarea name="information" class="form-control" rows="15" cols="100" style="font-size:16px;" placeholder="Enter additional description."></textarea></a><br>
+       <input name="information" class="form-control" rows="10" cols="40" style="font-size:16px;" placeholder="Enter additional description."></input>
+       </a><br>
     
     
     
@@ -279,27 +261,11 @@ background-color: #ff6363;
 	
 	
 	<%
-    Statement stmt = con.createStatement();
-    ResultSet rs = stmt.executeQuery("SELECT listingID FROM search4houses.Listings ORDER BY listingID DESC LIMIT 1;"); 
-    if (rs.next()==true){
 
-    int listID = Integer.parseInt(rs.getString("listingID"));
-    int newGeneratedID = listID+1;
-    System.out.println(newGeneratedID);
-
-    String roomType = request.getParameter("roomType");
-    
-    System.out.println(roomType);
     
     
     
     
-    }
-    
-    
-    
-    
-    stmt.close();
     con.close();
  
  } catch(SQLException e) {

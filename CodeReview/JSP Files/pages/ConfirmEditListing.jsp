@@ -40,7 +40,7 @@ background-color: #ff6363;
 <jsp:include page="navBar.jsp" />
 
 
- 	    <form action="ConfirmedNew.jsp" method="POST">
+ 	    <form action="ConfirmedEdit.jsp" method="POST">
 	<%
  
 
@@ -70,30 +70,28 @@ background-color: #ff6363;
 	<%
     Statement stmt = con.createStatement();
 	
-    ResultSet rs = stmt.executeQuery("SELECT listingID FROM search4houses.Listings ORDER BY listingID DESC LIMIT 1;"); 
     
    
     
-    if (rs.next()==true){
+    if (request.getParameter("listID") != "" ){
     	%> 
     	<div class="col-3" style="margin-left:40%; margin-right:5%; ">
     	<label class="addListTitle">Confirmation Page</label> <br>
     	
     	<% 
-    	 int listID = Integer.parseInt(rs.getString("listingID"));
-        int newGeneratedID = listID+1;
+    	String listID = request.getParameter("listID");
         
-       // System.out.println(newGeneratedID);
+        System.out.println(listID);
 
     
 
     
     %>
-        <input type="hidden" name="newGeneratedID" value="<%out.println(newGeneratedID);%>">
+        <input type="hidden" name="listID" value="<%out.println(listID);%>">
     <b>Contact Info:</b> <br><%
         
     
-    if (request.getParameter("contactName") != null || request.getParameter("email")!=null || request.getParameter("phoneNum")!=null){
+    if (request.getParameter("contactName") != "" || request.getParameter("email")!="" || request.getParameter("phoneNum")!=""){
     	String contactName = request.getParameter("contactName");
 	    String email = request.getParameter("email");
 	    String phoneNum = request.getParameter("phoneNum");
@@ -194,62 +192,22 @@ String bathrooms = request.getParameter("bathroomNum");
     String info = request.getParameter("information");
     %><br><b>Additional Information:</b> <%
     out.println(info);
-	
-	%>     <input type="hidden" name="info" value="<%out.println(info);%>"> <%
+%>     <input type="hidden" name="info" value="<%out.println(info);%>"> <%
 
 
 
     
-    String URL = request.getParameter("image1");
-    %><br><b>Image(s):
- 	<img src="img/<%out.println(URL);%>" height="200" width="300">
- 	   			<input type="hidden" name="image1" value="<%out.println(URL);%>">
- 	
- 	</b> <%
- 	if (request.getParameter("image2") != "") {
- 		URL =request.getParameter("image2");
- 		%> <img src="img/<%out.println(URL);%>" height="200" width="300">
- 		 	   			<input type="hidden" name="image2" value="<%out.println(URL);%>">
- 		<br><%
- 				
- 	}
- 	if (request.getParameter("image3") != "") {
- 		URL =request.getParameter("image3");
-
- 		%> 
- 		<img src="img/<%out.println(URL);%>" height="200" width="300"><br>
- 		 	   			<input type="hidden" name="image3" value="<%out.println(URL);%>">
- 		<%
- 				
- 	}
- 	if (request.getParameter("image4") != "") {
- 		URL =request.getParameter("image4");
- 		%> <img src="img/<%out.println(URL);%>" height="200" width="300"><br>
- 		 	   			<input type="hidden" name="image4" value="<%out.println(URL);%>">
- 		<%
- 				
- 	}
- 	if (request.getParameter("image5") != "") {
- 		URL =request.getParameter("image5");
- 		%> <img src="img/<%out.println(URL);%>" height="200" width="300"><br>
- 		 	   			<input type="hidden" name="image5" value="<%out.println(URL);%>">
- 		<%
- 				
- 	}
- 	
- 	
- 	
-
+    
     
     
 //out.println(confirmed);
 %>
-   				<input type="hidden" name="confirmType" value="newListing">
-
  
-    <br><br><button type="submit" id="buttonColor" name="submitButton" onclick="">Submit Listing</button>
+    <br><br>    
+    <button type="submit" id="buttonColor" name="submitButton"  onclick="">Submit Listing</button>
 
-    <br><br><button id="buttonColor" onclick="javascript:history.back()">Re-edit</button>
+    <br><br>
+    <button type="button"  id="buttonColor" onclick="javascript:history.back()">Re-edit</button>
 
 </div>
 

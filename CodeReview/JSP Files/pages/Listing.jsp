@@ -169,7 +169,14 @@ while (rs5.next()){
     		 %> <br><%
       		
       		
-           %></div> <div class = "column"><%
+           %></div> <div class = "column">
+ 	    <form action="AddToFavorites.jsp" method="POST">
+                       	            <input type="hidden" name="listID" value="<%out.println(listingID);%>">
+          <div class="container"><button class="submit" id ="button" onclick="">♡</button></div><br>
+          
+           </form>
+           
+           <%
 
       		
       		
@@ -189,8 +196,9 @@ while (rs5.next()){
        		String street = rs2.getString("streetAddress");
        		String city = rs2.getString("city");
        		String state = rs2.getString("state");
+       		String zipcode = rs2.getString("zipCode");
 
-       		out.println(street + " " + city+ ", "+ state);
+       		out.println(street + " " + city+ ", "+ state+" "+zipcode);
            	      	}
             	%></h3> <br><% 
 

@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.17, for macos10.14 (x86_64)
 --
--- Host: 127.0.0.1    Database: search4houses
+-- Host: localhost    Database: search4houses
 -- ------------------------------------------------------
 -- Server version	8.0.17
 
@@ -16,15 +16,15 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `favorites`
+-- Table structure for table `Favorites`
 --
 
-DROP TABLE IF EXISTS `favorites`;
+DROP TABLE IF EXISTS `Favorites`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `favorites` (
+CREATE TABLE `Favorites` (
   `listID` int(11) NOT NULL,
-  `listing1ID` varchar(45) DEFAULT '5',
+  `listing1ID` varchar(45) DEFAULT NULL,
   `listing2ID` varchar(45) DEFAULT NULL,
   `listing3ID` varchar(45) DEFAULT NULL,
   `listing4ID` varchar(45) DEFAULT NULL,
@@ -34,13 +34,13 @@ CREATE TABLE `favorites` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `favorites`
+-- Dumping data for table `Favorites`
 --
 
-LOCK TABLES `favorites` WRITE;
-/*!40000 ALTER TABLE `favorites` DISABLE KEYS */;
-INSERT INTO `favorites` VALUES (1,'11',NULL,NULL,NULL,NULL),(2,'13',NULL,NULL,NULL,NULL),(3,'100001','100005',NULL,NULL,NULL),(4,'100002','100003','100004',NULL,NULL),(5,'100003','100002','100004',NULL,NULL),(6,'100004',NULL,NULL,NULL,NULL),(7,'1','2','3','4','5'),(8,NULL,NULL,NULL,NULL,NULL),(9,'100006','100008','100009',NULL,NULL),(10,'100002','100003','100001','100005','100004'),(11,'100006','100007','100008','100009',NULL),(12,'100015',NULL,NULL,NULL,NULL),(13,'100006','100007','100011',NULL,NULL),(14,'100008','100009','100012','100014',NULL),(15,'100015',NULL,NULL,NULL,NULL),(16,'100002','100003','100004',NULL,NULL),(17,'100001','100005','100010','100013',NULL);
-/*!40000 ALTER TABLE `favorites` ENABLE KEYS */;
+LOCK TABLES `Favorites` WRITE;
+/*!40000 ALTER TABLE `Favorites` DISABLE KEYS */;
+INSERT INTO `Favorites` VALUES (1,'14\r\n','33\r\n',NULL,NULL,NULL),(2,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(3,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(4,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(5,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(6,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(7,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(8,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(9,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(10,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(11,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(12,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(13,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(14,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(15,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(16,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(17,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n'),(21,'2\r\n','9\r\n','9\r\n','9\r\n','14\r\n');
+/*!40000 ALTER TABLE `Favorites` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-07 19:19:01
+-- Dump completed on 2019-12-08  0:48:40

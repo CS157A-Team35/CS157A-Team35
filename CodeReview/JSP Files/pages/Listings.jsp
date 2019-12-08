@@ -11,21 +11,8 @@
 <title>search4House</title>
 
 <script>
-
-function addToFav() {
-	//document.getElementById(aBtn).style.backgroundColor.focus() = "#6CA2F1";
-	alert("Sucessfully added to Favorites");
 	
-	java.sql.Connection con; 
-		Class.forName("com.mysql.jdbc.Driver"); 
-
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","newpassword");
- 
- Statement stmt = con.createStatement();
-// ResultSet rs = stmt.executeQuery("INSERT INTO search4houses.Listings_Photos (photo_id, listing_id) VALUES()");
-
 	
-	}
 </script>
 
 
@@ -54,7 +41,8 @@ function addToFav() {
 Listings for: <% 
  String theZip = request.getParameter("zipcode");
  out.println(theZip); 
- 
+ theZip = theZip +"%";
+
 
  String db = "search4houses";
  String user;
@@ -89,7 +77,7 @@ Listings for: <%
 		%> 
 		<table border="0" style = "border-spacing: 50px"><tr><%
 
-     ResultSet rs = stmt.executeQuery("SELECT Listings_Photos.listing_id,photo_id, addr_id FROM search4houses.Listings_Photos, search4houses.Listings,search4houses.Photos,search4houses.Addresses,search4houses.Listing_Address WHERE roomType='Apartment' AND Listings_Photos.listing_id=Listings.listingID AND Listing_Address.listing_id=Listings.listingID AND photo_id=photoID AND addr_id=addrID AND zipCode="+theZip+" ORDER BY Listing_Address.listing_id ASC, Listings_Photos.photo_id DESC;");
+     ResultSet rs = stmt.executeQuery("SELECT Listings_Photos.listing_id,photo_id, addr_id FROM search4houses.Listings_Photos, search4houses.Listings,search4houses.Photos,search4houses.Addresses,search4houses.Listing_Address WHERE roomType LIKE 'Apartment%' AND Listings_Photos.listing_id=Listings.listingID AND Listing_Address.listing_id=Listings.listingID AND photo_id=photoID AND addr_id=addrID AND zipCode LIKE '"+theZip+"' ORDER BY Listing_Address.listing_id ASC, Listings_Photos.photo_id DESC;");
 
 		
 		
@@ -120,7 +108,6 @@ Listings for: <%
                //  	out.println(URL);
                  	%><div class = "container"><a href = Listing.jsp?<%out.println("listing="+listID); %>> 
                  	<img src="img/<%out.println(URL);%>" height="200" width="300"></a>  
-                 	<button class="btn" id ="button" onclick="addToFav()">♡</button>
                  	 <div class="shadow" style="position: absolute; bottom: 8px;right: 2%;">
 							<% String price = rs2.getString("price");
           				out.println("$" + price+"/month");%> <br>
@@ -197,7 +184,7 @@ Listings for: <%
 		%> 
 		<table border="0" style = "border-spacing: 50px"><tr><%
 
-     ResultSet rs = stmt.executeQuery("SELECT Listings_Photos.listing_id,photo_id, addr_id FROM search4houses.Listings_Photos, search4houses.Listings,search4houses.Photos,search4houses.Addresses,search4houses.Listing_Address WHERE roomType='Duplex' AND Listings_Photos.listing_id=Listings.listingID AND Listing_Address.listing_id=Listings.listingID AND photo_id=photoID AND addr_id=addrID AND zipCode="+theZip+" ORDER BY Listing_Address.listing_id ASC, Listings_Photos.photo_id DESC;");
+     ResultSet rs = stmt.executeQuery("SELECT Listings_Photos.listing_id,photo_id, addr_id FROM search4houses.Listings_Photos, search4houses.Listings,search4houses.Photos,search4houses.Addresses,search4houses.Listing_Address WHERE roomType LIKE 'Duplex%' AND Listings_Photos.listing_id=Listings.listingID AND Listing_Address.listing_id=Listings.listingID AND photo_id=photoID AND addr_id=addrID AND zipCode LIKE '"+theZip+"' ORDER BY Listing_Address.listing_id ASC, Listings_Photos.photo_id DESC;");
 
 		
 		
@@ -228,7 +215,6 @@ Listings for: <%
                //  	out.println(URL);
                  	%><div class = "container"><a href = Listing.jsp?<%out.println("listing="+listID); %>> 
                  	<img src="img/<%out.println(URL);%>" height="200" width="300"></a>  
-                 	<button class="btn" id ="button" onclick="addToFav()">♡</button>
                  	 <div class="shadow" style="position: absolute; bottom: 8px;right: 2%;">
 							<% String price = rs2.getString("price");
           				out.println("$" + price+"/month");%> <br>
@@ -306,7 +292,7 @@ Listings for: <%
 		%> 
 		<table border="0" style = "border-spacing: 50px"><tr><%
 
-     ResultSet rs = stmt.executeQuery("SELECT Listings_Photos.listing_id,photo_id, addr_id FROM search4houses.Listings_Photos, search4houses.Listings,search4houses.Photos,search4houses.Addresses,search4houses.Listing_Address WHERE roomType='Shared Room' AND Listings_Photos.listing_id=Listings.listingID AND Listing_Address.listing_id=Listings.listingID AND photo_id=photoID AND addr_id=addrID AND zipCode="+theZip+" ORDER BY Listing_Address.listing_id ASC, Listings_Photos.photo_id DESC;");
+     ResultSet rs = stmt.executeQuery("SELECT Listings_Photos.listing_id,photo_id, addr_id FROM search4houses.Listings_Photos, search4houses.Listings,search4houses.Photos,search4houses.Addresses,search4houses.Listing_Address WHERE roomType LIKE 'Shared Room%' AND Listings_Photos.listing_id=Listings.listingID AND Listing_Address.listing_id=Listings.listingID AND photo_id=photoID AND addr_id=addrID AND zipCode LIKE '"+theZip+"' ORDER BY Listing_Address.listing_id ASC, Listings_Photos.photo_id DESC;");
 
 		
 		
@@ -337,7 +323,6 @@ Listings for: <%
                //  	out.println(URL);
                  	%><div class = "container"><a href = Listing.jsp?<%out.println("listing="+listID); %>> 
                  	<img src="img/<%out.println(URL);%>" height="200" width="300"></a>  
-                 	<button class="btn" id ="button" onclick="addToFav()">♡</button>
                  	 <div class="shadow" style="position: absolute; bottom: 8px;right: 2%;">
 							<% String price = rs2.getString("price");
           				out.println("$" + price+"/month");%> <br>
@@ -416,7 +401,7 @@ Listings for: <%
 		%> 
 		<table border="0" style = "border-spacing: 50px"><tr><%
 
-     ResultSet rs = stmt.executeQuery("SELECT Listings_Photos.listing_id,photo_id, addr_id FROM search4houses.Listings_Photos, search4houses.Listings,search4houses.Photos,search4houses.Addresses,search4houses.Listing_Address WHERE roomType='Single Room' AND Listings_Photos.listing_id=Listings.listingID AND Listing_Address.listing_id=Listings.listingID AND photo_id=photoID AND addr_id=addrID AND zipCode="+theZip+" ORDER BY Listing_Address.listing_id ASC, Listings_Photos.photo_id DESC;");
+     ResultSet rs = stmt.executeQuery("SELECT Listings_Photos.listing_id,photo_id, addr_id FROM search4houses.Listings_Photos, search4houses.Listings,search4houses.Photos,search4houses.Addresses,search4houses.Listing_Address WHERE roomType LIKE 'Single Room%' AND Listings_Photos.listing_id=Listings.listingID AND Listing_Address.listing_id=Listings.listingID AND photo_id=photoID AND addr_id=addrID AND zipCode LIKE '"+theZip+"' ORDER BY Listing_Address.listing_id ASC, Listings_Photos.photo_id DESC;");
 
 		
 		
@@ -447,7 +432,6 @@ Listings for: <%
                //  	out.println(URL);
                  	%><div class = "container"><a href = Listing.jsp?<%out.println("listing="+listID); %>> 
                  	<img src="img/<%out.println(URL);%>" height="200" width="300"></a>  
-                 	<button class="btn" id ="button" onclick="addToFav()">♡</button>
                  	 <div class="shadow" style="position: absolute; bottom: 8px;right: 2%;">
 							<% String price = rs2.getString("price");
           				out.println("$" + price+"/month");%> <br>
@@ -523,7 +507,7 @@ Listings for: <%
 			%> 
 			<table border="0" style = "border-spacing: 50px"><tr><%
 
-	     ResultSet rs = stmt.executeQuery("SELECT Listings_Photos.listing_id,photo_id, addr_id FROM search4houses.Listings_Photos, search4houses.Listings,search4houses.Photos,search4houses.Addresses,search4houses.Listing_Address WHERE roomType='Studio' AND Listings_Photos.listing_id=Listings.listingID AND Listing_Address.listing_id=Listings.listingID AND photo_id=photoID AND addr_id=addrID AND zipCode="+theZip+" ORDER BY Listing_Address.listing_id ASC, Listings_Photos.photo_id DESC;");
+	     ResultSet rs = stmt.executeQuery("SELECT Listings_Photos.listing_id,photo_id, addr_id FROM search4houses.Listings_Photos, search4houses.Listings,search4houses.Photos,search4houses.Addresses,search4houses.Listing_Address WHERE roomType LIKE 'Studio%' AND Listings_Photos.listing_id=Listings.listingID AND Listing_Address.listing_id=Listings.listingID AND photo_id=photoID AND addr_id=addrID AND zipCode LIKE '"+theZip+"' ORDER BY Listing_Address.listing_id ASC, Listings_Photos.photo_id DESC;");
 
 			
 			
@@ -554,7 +538,6 @@ Listings for: <%
 	               //  	out.println(URL);
 	                 	%><div class = "container"><a href = Listing.jsp?<%out.println("listing="+listID); %>> 
 	                 	<img src="img/<%out.println(URL);%>" height="200" width="300"></a>  
-	                 	<button class="btn" id ="button" onclick="addToFav()">♡</button>
 	                 	 <div class="shadow" style="position: absolute; bottom: 8px;right: 2%;">
 								<% String price = rs2.getString("price");
 	          				out.println("$" + price+"/month");%> <br>

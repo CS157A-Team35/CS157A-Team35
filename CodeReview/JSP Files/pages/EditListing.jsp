@@ -16,29 +16,6 @@
 
 
 
-function disableAddContact(){
-
-	if (document.getElementById("userContactInfo").checked = true){
-		
-		document.getElementById("contactName").disabled = true;
-		document.getElementById("contactName").value = "";
-		document.getElementById("email").disabled = true;
-		document.getElementById("email").value = "";
-		document.getElementById("phoneNum").disabled = true;
-		document.getElementById("phoneNum").value = "";
-
-
-	} 
-	}
-function enableAddContact(){
-if (document.getElementById("aDiffContact").checked = true){
-		
-		document.getElementById("contactName").disabled = false;
-		document.getElementById("email").disabled = false;
-		document.getElementById("phoneNum").disabled = false;
-
-	}
-}
 
 
 </script>
@@ -67,6 +44,8 @@ background-color: #ff6363;
 
 
  <%
+ String listing_id = request.getParameter("listing");
+
  if (session == null || session.getAttribute("userID") == null) {
 	 
 	 %> 
@@ -103,35 +82,35 @@ background-color: #ff6363;
      
 //listings
  	    Statement stmt = con.createStatement();
-		   ResultSet rs = stmt.executeQuery("SELECT * FROM search4houses.Listings WHERE listingID=3"); //insert listingID here
+		   ResultSet rs = stmt.executeQuery("SELECT * FROM search4houses.Listings WHERE listingID="+listing_id+";"); //insert listingID here
 			//(listingID, roomType, price, leaseTimeFrame, roomNum, bathroomNum, description)
 	
 //photos
 			 Statement stmt1 = con.createStatement();
-				   ResultSet rs1 = stmt1.executeQuery("SELECT * FROM search4houses.Photos, search4houses.Listings_Photos WHERE photoID=photo_id AND listing_id=3;");  //insert listingID here
+				   ResultSet rs1 = stmt1.executeQuery("SELECT * FROM search4houses.Photos, search4houses.Listings_Photos WHERE photoID=photo_id AND listing_id="+listing_id+";");  //insert listingID here
 			
 //Address	   
 			Statement stmt2 = con.createStatement();
-				   ResultSet rs2 = stmt2.executeQuery("SELECT * FROM search4houses.Addresses, search4houses.Listing_Address WHERE addrID=addr_ID AND listing_id=3;");  //insert listingID here
+				   ResultSet rs2 = stmt2.executeQuery("SELECT * FROM search4houses.Addresses, search4houses.Listing_Address WHERE addrID=addr_ID AND listing_id="+listing_id+";");  //insert listingID here
 //Contact	   
 			Statement stmt3 = con.createStatement();
-					ResultSet rs3 = stmt3.executeQuery("SELECT * FROM search4houses.AdditionalContacts, search4houses.Listings_AdditionalContact WHERE contactAccID=addContact_ID AND listing_id=3;");  //insert listingID here
+					ResultSet rs3 = stmt3.executeQuery("SELECT * FROM search4houses.AdditionalContacts, search4houses.Listings_AdditionalContact WHERE contactAccID=addContact_ID AND listing_id="+listing_id+";");  //insert listingID here
 						   
 			if (rs.next()==true && rs1.next()==true && rs2.next()==true && rs3.next()==true){
 			String listingID = rs.getString("listingID");
 			String roomType = rs.getString("roomType");
-			String price = rs.getString("price");
+			int price = Integer.parseInt(rs.getString("price"));
 			//System.out.println(price);
 
-			String leaseTimeFrame = rs.getString("leaseTimeFrame");
-			String roomNum = rs.getString("roomNum");
-			String bathroomNum = rs.getString("bathroomNum");
+			int leaseTimeFrame = Integer.parseInt(rs.getString("leaseTimeFrame"));
+			int roomNum = Integer.parseInt(rs.getString("roomNum"));
+			int bathroomNum = Integer.parseInt(rs.getString("bathroomNum"));
 			String description = rs.getString("description");
 			
 			String streetAddress = rs2.getString("streetAddress");
 			String city = rs2.getString("city");
 			String state = rs2.getString("state");
-			String zipCode = rs2.getString("zipCode");
+			String zipCode = (rs2.getString("zipCode"));
 			
 			String phoneNum = rs3.getString("phoneNum");
 			String email = rs3.getString("email");
@@ -158,19 +137,17 @@ background-color: #ff6363;
 	
 	
 	
-	 <form name = "newListing" action="ConfirmedNewListing.jsp" style="margin-left:5%; margin-right:5%" method="POST" onSubmit="" autocomplete="on">
+	 <form name = "newListing" action="ConfirmEditListing.jsp" style="margin-left:5%; margin-right:5%" method="POST" onSubmit="" autocomplete="on">
 	<div class="form-group">
 	<div  style="padding-right:20%; padding-left:20%;"><fieldset style="padding:15px;">
 	
 	<legend style ="font-size:24px;color: #ff6363; padding-top: 10px;">Contact Info</legend>
-	  <input type="radio" class="form-check-input" name="contactInfo" value="userContact" id="userContactInfo" onclick="if(this.checked){disableAddContact()}" > Use mine<br>
-	  <input type="radio" class="form-check-input" name="contactInfo" value="diffContact" id="aDiffContact" onclick="if(this.checked){enableAddContact()}">Another Contact<br>
-	  <br>Contact Name: <br>
-        <input type="text" class="form-control" name="contactName" id="contactName" size=50  disabled placeholder="<%out.println(name);%>" value="<%out.println(name);%>"/> <br>
+	 Contact Name: <br>
+        <input type="text" class="form-control" name="contactName" id="contactName" size=50    value="<%out.println(name);%>"/> <br>
       Email Address: <br>
-        <input type="email" class="form-control" name="email" id="email" size=60  disabled placeholder="<%out.println(email);%>" value="<%out.println(email);%>"/> <small></small><br>  
+        <input type="email" class="form-control" name="email" id="email" size=60   placeholder="<%out.println(email);%>" value="<%out.println(email);%>"/> <small></small><br>  
         Phone Number: <br>
-        <input type="tel" class="form-control" name="phoneNum" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phoneNum" size=30  disabled placeholder="<%out.println(phoneNum);%>" value="<%out.println(phoneNum);%>"/><small></small> <br>
+        <input type="tel" class="form-control" name="phoneNum" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phoneNum" size=30   placeholder="<%out.println(phoneNum);%>" value="<%out.println(phoneNum);%>"/><small></small> <br>
         
 	  
 	
@@ -181,7 +158,7 @@ background-color: #ff6363;
 	<div class="col-3"> 		<label class="addListTitle">Room type</label> <br>
 	<small>Select the type of room</small><br>
     <select class="custom-select" name = "roomType" size = 5 style="font-size:16px;">
-    	<option value="<%out.println(roomType);%>" disabled selected> <%out.println(roomType);%> </option>
+    	<option value="<%out.println(roomType);%>"  selected> <%out.println(roomType);%> </option>
     <option value = "Apartment">Apartment</option>
         <option value = "Duplex">Duplex</option>
         <option value = "Shared Room">Shared Room</option>
@@ -191,17 +168,17 @@ background-color: #ff6363;
     <label class="addListTitle">
     	Price </label><br>
     	<small>Set pricing per month</small><br>
-        <input type="number" class="form-control" name="price" placeholder="$<%out.println(price);%>" value="<%out.println(price);%>" > <br>
+        <input type="text" class="form-control" name="price" pattern= "[0-9]+" placeholder="$<%out.println(price);%>" value="<%out.println(price);%>" required> <br>
        <label class="addListTitle"> Number of Bedrooms </label><br>
       <small> Set number of bedrooms</small><br>
-        <input type="number" class="form-control" name="bedroomNum" placeholder="<%out.println(roomNum);%>" value="<%out.println(roomNum);%>"> <br>
+        <input type="text" class="form-control" name="bedroomNum" pattern= "[0-9]+"  placeholder="<%out.println(roomNum);%>" value="<%out.println(roomNum);%>"required> <br>
        <label class="addListTitle"> Number of Bathrooms</label> <br>
        <small>Set number of bathrooms</small> <br>
-        <input type="number" class="form-control" name="bathroomNum" placeholder="<%out.println(bathroomNum);%>" value="<%out.println(bathroomNum);%>"> <br>
+        <input type="text" class="form-control" name="bathroomNum" pattern= "[0-9]+"  placeholder="<%out.println(bathroomNum);%>" value="<%out.println(bathroomNum);%>"required> <br>
        <label class="addListTitle"> Lease length</label> <br>
       <small> Set lease length for total months</small><br>
       
-        <input type="number" class="form-control" name="leaseLength" id="leaseTimeFrame" placeholder="<%out.println(leaseTimeFrame);%>" value="<%out.println(leaseTimeFrame);%>">
+        <input type="text" class="form-control" name="leaseLength" pattern= "[0-9]+"  id="leaseTimeFrame" placeholder="<%out.println(leaseTimeFrame);%>" value="<%out.println(leaseTimeFrame);%>"required>
          </div>
          
          
@@ -211,19 +188,19 @@ background-color: #ff6363;
        <legend style ="font-size:24px;color: #ff6363;"> Address </legend><br>
        
         Street Address
-    	<input type="text" class="form-control" name="streetAddress" id="streetAddress"  placeholder="<%out.println(streetAddress);%>" value="<%out.println(streetAddress);%>">
+    	<input type="text" class="form-control" name="streetAddress" id="streetAddress"  placeholder="<%out.println(streetAddress);%>" value="<%out.println(streetAddress);%>"required>
        <br>
 	<div class=" col-5">
       City
-      <input type="text" class="form-control" name="city" id="city" placeholder="<%out.println(city);%>" value="<%out.println(city);%>">
+      <input type="text" class="form-control" name="city" id="city" placeholder="<%out.println(city);%>" value="<%out.println(city);%>"required>
     </div>
 		
 		<div class="col-3">
 		State
 		<%//code below borrowed from https://www.freeformatter.com/usa-state-list-html-select.html
 			//a website that provides free web resources%>
-		<select class="form-control" name="state" style="font-size:16px; width:90px;" >
-	<option value="<%out.println(state);%>" disabled selected hidden> <%out.println(state);%> </option>
+		<select class="form-control" name="state" style="font-size:16px; width:90px;" required>
+	<option value="<%out.println(state);%>"  selected hidden> <%out.println(state);%> </option>
 	<option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
 	<option value="AZ">Arizona</option>
@@ -278,12 +255,15 @@ background-color: #ff6363;
 </select>	</div>
 <div class="col-3">
 	Zip Code: 
-	        <input type="number" class="form-control" name="zipcode" id="zipcode" style="margin-bottom:40px;" placeholder="<%out.println(zipCode);%>" maxlength="5"  value="<%out.println(zipCode);%>"/> <br>
+	        <input type="text" class="form-control" name="zipcode" id="zipcode" pattern="[0-9]{5}" style="margin-bottom:40px;" placeholder="<%out.println(zipCode);%>" maxlength="5"  value="<%out.println(zipCode);%>" required> <br>
 	       </div> </fieldset>
+	       
+	       
 	       
 	        <div class="col-12">
         <label for="info" class="addListTitle">Additional Information</label>
-       <textarea name="information" class="form-control" rows="10" cols="40" style="font-size:16px;" placeholder="<%out.println(description);%>" value="<%out.println(description);%>"></textarea></div><br>
+       <input name="information" class="form-control" rows="10" cols="40" style="font-size:16px;" placeholder="<%out.println(description);%>" value="<%out.println(description);%>"></input>
+       </div><br>
     
     </div>
 	        
@@ -297,26 +277,18 @@ background-color: #ff6363;
 	 %><br><b>Image(s): </b><br><%
 	        while (rs1.next()){
 				String URL = rs1.getString("photoURL")+".jpg";
-				out.println(URL);
+				//out.println(URL);
 				%>
 				 	<img src="img/<%out.println(URL);%>" height="200" width="300">
-				 	   			<input type="hidden" name="image<%out.println(image);%>" value="<%out.println(URL);%>">
-				 		<input type="file" name="image<%out.println(image);%>" accept="image/jpg" /> <br><br><br>
+				 		 <br><br><br>
 				 	
 				 	 <%
+				 	//out.println(URL);
 				 	image++;
 	        }
 				
-				if(image != 5){
-				for (int i = image; i<=5; i++){
-					%>
-				 		<input type="file" name="image<%out.println(image);%>" accept="image/jpg" /> <br>
-				 	
-				 	 <%
-				}
-				}%>
-	</div>
-	
+				%>
+
 
 	
 	
@@ -328,15 +300,21 @@ background-color: #ff6363;
     
     
     
+ 
     
     
-    <a class="col-9">
-    <button type="submit" id="buttonColor" name="submitButton" style="float: right;" onclick=""/>Submit Listing</button>
-    <button type="button" id="buttonColor" name="cancelButton" style="float: right; margin-right:25px" onclick="javascript:history.back()">Cancel New Listing</button>
-    </a></div>
+    </div>
+        <br><br>
+    <a class="col-5">
+    <button type="submit" id="buttonColor" name="submitButton"  onclick=""/>Submit Edits</button>
+        </a>
+        <a class="col-3">
+    <button type="button" id="buttonColor" name="cancelButton" style="float: left; margin-left:2%" onclick="javascript:history.back()">Cancel Edits</button>
+    </a>
 </form></label>
 
 
+ 	   		 	   			<input type="hidden" name="listID" value="<%out.println(listing_id);%>">
  
  
 	
