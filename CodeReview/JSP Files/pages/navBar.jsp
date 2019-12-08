@@ -29,7 +29,7 @@
 	<div class="topStyle" style="padding-bottom:10px;"><table border="0" style = "position: absolute; border-spacing: 50px; z-index: 1;">
 <h1 align  = "center" style = "	color: #ff6363;">Search4House</h1>
  <div id = "menuTop" align  = "center" style="white-space: normal;">
-	<a href  = "WelcomePage.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Home</strong></a> |
+	<a href  = "index.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Home</strong></a> |
 	<a href  = "Profile.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Profile</strong></a> |
 	<a href = "FavoriteList.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Favorites List</strong></a> |
 	<a href  = "AddListing.jsp" style="text-decoration: none; color: #4B4B4B"><strong>Add Listing</strong></a>
