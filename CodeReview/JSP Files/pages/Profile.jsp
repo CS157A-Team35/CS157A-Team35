@@ -84,6 +84,7 @@ color: #4B4B4B; }
 	<img src = "/html/images/new_user.jpg" alt = "Test Image" width = "100" height = "100" border  = "2"/> <br>
 	<font size = "5"><%=userName%></font><br>
 	<button onClick = "location.href='ProfileEdit.jsp'" type = button >Edit Profile</button>
+	<button onClick = "location.href='EditListing.jsp'" type = button >Edit Listing</button>
 	
 	<br>
 	<br>
