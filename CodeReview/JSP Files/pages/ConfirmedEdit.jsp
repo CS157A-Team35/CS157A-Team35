@@ -149,6 +149,10 @@ Statement stmt3 = con.createStatement();
 
 		    		    	 int contactID = Integer.parseInt(rs4.getString("contactAccID"));
 		    		    	 int newGeneratedContactID = contactID+1;
+		    		    	 System.out.println("contactID "+contactID);
+		    		    	 System.out.println("cnewContactID "+newGeneratedContactID);
+		    		    	 
+
 		    		        Statement stmt7 = con.createStatement();
 			    			
 			    		    ResultSet rs7 = stmt7.executeQuery("SELECT contactAccID FROM search4houses.AdditionalContacts WHERE email='"+email+"' AND phoneNum='"+phoneNum+"' AND name='"+contactName+"';"); 		   
@@ -156,14 +160,21 @@ Statement stmt3 = con.createStatement();
 			    		    	Statement stmt5 = con.createStatement();
 			    				   stmt5.executeUpdate("INSERT INTO search4houses.AdditionalContacts (contactAccID, phoneNum, email, name) VALUES ("+newGeneratedContactID+", '"+phoneNum+"', '"+email+"', '"+contactName+"');");
 			    				   stmt5.close();
-			    				  
+				    		    	 System.out.println("new contact!!!");
 
-			    		    } 
-			    		    	 Statement stmt6= con.createStatement();
-			    				   stmt6.executeUpdate("UPDATE search4houses.Listings_AdditionalContact SET addContact_id = '"+contactID+"' WHERE listing_id = "+listID+";");
+
+			    		    } else {
+			    				   String oldContactID = rs7.getString("contactAccID");
+				    		    	 System.out.println("old contact id "+oldContactID);
+
+			    		    	
+			    		    	Statement stmt6= con.createStatement();
+			    				   stmt6.executeUpdate("UPDATE search4houses.Listings_AdditionalContact SET addContact_id = '"+oldContactID+"' WHERE listing_id = "+listID+";");
 			    				    
 			    				   
 			    				    stmt6.close();
+			    		    }
+			    		    	 
 			    		   
 		    				    stmt7.close();
 
