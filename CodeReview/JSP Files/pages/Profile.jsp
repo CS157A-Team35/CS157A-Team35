@@ -51,7 +51,6 @@ color: #4B4B4B; }
  }
  else{
 	 
- 
 	 String db = "search4houses";
 	 String user;
 	 String addressID;
@@ -81,7 +80,7 @@ color: #4B4B4B; }
  
 %>  
 
-		<p style="margin-left: 40px"><font size = "5"><%=userName%></font></p>
+		<p style="margin-left: 40px"><font size = "5"><%=fullName%></font></p>
 	
 	<p style="margin-left: 40px"><button onClick = "location.href='ProfileEdit.jsp'" type = button >Edit Profile</button></p>
 	<p style="margin-left: 40px"><button onClick = "location.href='ProfileListingGroup.jsp'" type = button >View Your Listings</button></p>
@@ -101,7 +100,7 @@ color: #4B4B4B; }
 			</tr>
 		</thead>
 		<tr>
-			<td><p style="margin-left: 40px">Name:</p></td><td><p style="margin-left: 40px"><%=fullName%></p></td>
+			<td><p style="margin-left: 40px">Username:</p></td><td><p style="margin-left: 40px"><%=userName%></p></td>
 		</tr>
 		<tr> 
 			<td><p style="margin-left: 40px">Email:</p></td><td><p style="margin-left: 40px"><%=email%></p></td>
