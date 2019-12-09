@@ -21,6 +21,37 @@ color: #4B4B4B; }
 </head>
 <body>
 <jsp:include page="navBar.jsp" />
+	
+	<% String db = "search4houses";
+
+	 String fullName = null;
+	 String userName=(String)session.getAttribute("username");
+	 try {
+	     
+	     java.sql.Connection con; 
+	 		Class.forName("com.mysql.jdbc.Driver"); 
+	
+	 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","newpassword");
+
+	 		String userID=(String)session.getAttribute("userID"); 
+	 		 		
+	     Statement stmt = con.createStatement();
+	     ResultSet rs = stmt.executeQuery("SELECT * FROM search4houses.accounts WHERE search4houses.accounts.accID = " + userID); 
+	    
+	   	while(rs.next())
+	   	{
+	     fullName=rs.getString("fullname");
+	   	}
+	   	
+		stmt.close();
+	    con.close();
+	    } catch(SQLException e) {
+	    out.println("SQLException caught: " + e.getMessage()); 
+		}
+		%>
+	
+	
+	
 	<fieldset>
 		<center><legend><h2 align="center">Welcome</h2></legend>
 		<p>This is Search4Housing, where we match you to our best listing
@@ -29,7 +60,7 @@ color: #4B4B4B; }
 	<% 
 String userID=(String)session.getAttribute("userID"); 
 	if (userID != null) {
-		out.print("Hello, "+ userID + "! Feel free to scroll through our catalog and enjoy your time with us here."); 
+		out.print("Hello, "+ fullName + "! Feel free to scroll through our catalog and enjoy your time with us here."); 
 	}
 %>
 	
