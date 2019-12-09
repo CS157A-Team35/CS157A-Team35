@@ -21,6 +21,10 @@ color: #4B4B4B; }
 </head>
 <body>
 <jsp:include page="navBar.jsp" />
+<div align="right">
+<button type="button" onclick="window.location.href = 'Register.jsp'">Register</button>
+</div>
+
 	
 	<% String db = "search4houses";
 
