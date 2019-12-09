@@ -71,13 +71,17 @@ background-color: #ff6363;
        
        
        
-       <div style="position: relative; align: center;">
-       <div class="col-6">
-   <button type="submit" id="buttonColor" name="submitButton"  onclick="">Complete Edit</button>
-    </div>
+       
+   <a class="col-8">
+   	<button type="submit" id="buttonColor" name="submitButton"  onclick="">Complete Edit</button>
+   </a>
+   <a class="col-3">
+  	 <button type="button" id="buttonColor" name="cancelButton" style="float: left; margin-left:2%" onclick= "location.href='Profile.jsp'">Cancel Edits</button>
+   </a>
+   
     
     
-    </div>
+   
 	  </fieldset></div></form>
        <%
      
@@ -87,12 +91,7 @@ background-color: #ff6363;
      } catch(SQLException e) {
      out.println("SQLException caught: " + e.getMessage()); 
  }
- %>
-
-
-
-	<button onClick = "location.href='Profile.jsp'" type = button >Cancel</button>
-
+ %>	
 
 
 

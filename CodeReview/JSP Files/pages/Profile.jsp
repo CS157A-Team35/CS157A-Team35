@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
         <%@ page import="java.sql.*"%>
+        <%@ page import = "java.util.*" %>
     
 <!DOCTYPE html>
 <html>
 <script src="basics.js"> </script>
 
   <link rel="stylesheet" href="style.css">
+
 <head>
 <meta charset="UTF-8">
-<title>search4House</title>
- <!-- COPY AND PASTE EVERYTHING HERE ^^^^^^ -->
-<script>
+<title>Search4House</title>
 
+<script>
 
 
 </script>
@@ -80,11 +81,13 @@ color: #4B4B4B; }
  
 %>  
 
-	<!-- here is where we put the profile picture (delete the comments -->
-	<img src = "/html/images/new_user.jpg" alt = "Test Image" width = "100" height = "100" border  = "2"/> <br>
-	<font size = "5"><%=userName%></font><br>
-	<button onClick = "location.href='ProfileEdit.jsp'" type = button >Edit Profile</button>
-	<button onClick = "location.href='EditListing.jsp'" type = button >Edit Listing</button>
+		<p style="margin-left: 40px"><font size = "5"><%=userName%></font></p>
+	
+	<p style="margin-left: 40px"><button onClick = "location.href='ProfileEdit.jsp'" type = button >Edit Profile</button></p>
+	<p style="margin-left: 40px"><button onClick = "location.href='ProfileListingGroup.jsp'" type = button >View Your Listings</button></p>
+	
+	
+	
 	
 	<br>
 	<br>
@@ -98,13 +101,13 @@ color: #4B4B4B; }
 			</tr>
 		</thead>
 		<tr>
-			<td>Name:</td><td><%=fullName%></td>
+			<td><p style="margin-left: 40px">Name:</p></td><td><p style="margin-left: 40px"><%=fullName%></p></td>
 		</tr>
 		<tr> 
-			<td>Email:</td><td><%=email%></td>
+			<td><p style="margin-left: 40px">Email:</p></td><td><p style="margin-left: 40px"><%=email%></p></td>
 		</tr>
 		<tr>
-			<td>Phone Number:</td><td><%=phoneNum%></td>
+			<td><p style="margin-left: 40px">Phone Number:</p></td><td><p style="margin-left: 40px"><%=phoneNum%></p></td>
 		</tr>
 		
 	</table>
