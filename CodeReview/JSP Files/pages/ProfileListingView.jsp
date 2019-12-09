@@ -244,6 +244,9 @@ while (rs5.next()){
 		<a class="col-3">
   	 <button type="button" id="buttonColor" name="Edit Button" style="float: left; margin-left:2%" onclick= "location.href='EditListing.jsp?listing=<%=listing_id%>'">Edit</button>
    </a>
+   <a class="col-6">
+  	 <button type="button" id="buttonColor" name="Edit Button" style="float: left; margin-left:2%" onclick= "location.href='ProfileListingGroup.jsp'">Back to Listings</button>
+   </a>
 		
 		
 		</div></div>

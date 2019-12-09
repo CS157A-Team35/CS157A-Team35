@@ -65,7 +65,7 @@ background-color: #ff6363;
 			<th>Room Number</th>
 			<th>Bathroom Number</th>
 			<th>Description</th>
-			<th>Visit Listing</th>
+			<th>View Listing</th>
 		</tr>
 		
 	 <% 
@@ -116,7 +116,7 @@ background-color: #ff6363;
 			<td><%=roomNumber%></td>
 			<td><%=bathNumber%></td>
 			<td><%=description%></td>
-			<td><button onClick = <%=listingEditLocation%> type = button >Visit</button></td>
+			<td><button onClick = <%=listingEditLocation%> type = button >View</button></td>
 			
 
 		</tr>
@@ -124,7 +124,9 @@ background-color: #ff6363;
  <%}%>
 	</table>
 		
-			
+	<a class="col-3">
+  	 <button type="button" id="buttonColor" name="cancelButton" style="float: left; margin-left:2%" onclick= "location.href='Profile.jsp'">Back to Profile</button>
+   </a>
 
 	
 	<%
