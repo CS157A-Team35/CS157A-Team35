@@ -52,7 +52,7 @@ background-color: #ff6363;
      
      %> 
      
-      <form name = "newUser" action="RegisterSuccess.jsp" style="margin-left:5%; margin-right:5%" method="POST" onSubmit="" autocomplete="on">
+      <form name = "newUser" action="" style="margin-left:5%; margin-right:5%" method="POST" onSubmit="" autocomplete="on">
 	<div class="form-group" style="padding-right:20%; padding-left:20%;"><fieldset style="padding:15px;">
 	
 	<legend style ="font-size:24px;color: #ff6363; padding-top: 10px;">New User Registration</legend>
@@ -89,10 +89,10 @@ background-color: #ff6363;
      if (request.getParameter("username") != null && request.getParameter("email")!=null){
 
      String aUsername = request.getParameter("username");
- // System.out.println(aUsername);
+//  System.out.println("usernamee "+aUsername);
 
   String aEmail = request.getParameter("email");  
- // System.out.println(aPassword);
+  //System.out.println("emailss "+aEmail);
   ResultSet rs = stmt.executeQuery("SELECT * FROM search4houses.Accounts WHERE username='"+aUsername+"';"); 
   ResultSet rs1 = stmt1.executeQuery("SELECT * FROM search4houses.Accounts WHERE email='"+aEmail+"';"); 
   
@@ -106,6 +106,85 @@ background-color: #ff6363;
   
 
   //System.out.println("hefefei");
+  
+ 
+     
+    Statement stmt2 = con.createStatement();
+	
+    ResultSet rs2 = stmt2.executeQuery("SELECT accID FROM search4houses.Accounts ORDER BY accID DESC LIMIT 1;"); 
+    
+   
+    int userID = 0;
+    if (rs2.next()==true){
+    	
+    	  userID = Integer.parseInt(rs2.getString("accID"));
+         userID = userID+1;
+         
+		    
+
+    }
+	String newUserID = Integer.toString(userID);
+	System.out.println(newUserID);
+
+    
+
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+    String email = request.getParameter("email");
+    String name = request.getParameter("name");
+    String phoneNum = request.getParameter("phoneNum");
+    
+
+    if (request.getParameter("username") != null ||request.getParameter("password") != null ||request.getParameter("name") != null || request.getParameter("email") != null ||  
+    		request.getParameter("phoneNum") != null){
+    	System.out.println("fefef");
+
+    	
+    
+	   // out.println(newGeneratedID);
+
+
+			  
+	    //Accounts
+	        Statement stmt3 = con.createStatement();
+		   stmt3.executeUpdate("INSERT INTO search4houses.Accounts (accID, username, password, fullName, email, phoneNum) VALUES ('"+newUserID+"','"+username+"','"+password+"','"+name+"','"+email+"','"+phoneNum+"');"); 
+		  
+
+		   //session.setAttribute("userID",userID); 
+		   //session.setAttribute("username",username); 
+		  
+		    	System.out.println("bofefeb");
+
+		    	
+		    	//Favorites
+		    	Statement stmt5 = con.createStatement();
+				   stmt5.executeUpdate("INSERT INTO search4houses.Favorites (listID) VALUES ("+newUserID+");");
+				   stmt5.close();
+				   
+				   Statement stmt6 = con.createStatement();
+				  stmt6.executeUpdate("INSERT INTO search4houses.User_Favorites (user_id, list_id) VALUES ("+newUserID+", "+newUserID+");");
+				   stmt6.close();
+
+		    
+		 
+
+		    stmt.close();
+		   
+		    
+			  
+		
+    }
+
+
+ 
+
+    stmt.close();
+
+
+
+ con.close();
+ 
+
 
   response.sendRedirect("RegisterSuccess.jsp"); 
   } else{

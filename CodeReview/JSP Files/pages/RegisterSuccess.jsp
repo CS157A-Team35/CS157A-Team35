@@ -60,78 +60,8 @@ background-color: #ff6363;
  		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?verifyServerCertificate=false&useSSL=true", "root","newpassword");
      
 
- 
-    Statement stmt = con.createStatement();
-	
-    ResultSet rs = stmt.executeQuery("SELECT accID FROM search4houses.Accounts ORDER BY accID DESC LIMIT 1;"); 
-    
-   
-    int userID = 0;
-    if (rs.next()==true){
-    	
-    	  userID = Integer.parseInt(rs.getString("accID"));
-         userID = userID+1;
-         
-		    
-
-    }
-	String newUserID = Integer.toString(userID);
-	System.out.println(newUserID);
-
-    
-
-    String username = request.getParameter("username");
-    String password = request.getParameter("password");
-    String email = request.getParameter("email");
-    String name = request.getParameter("name");
-    String phoneNum = request.getParameter("phoneNum");
-    
-
-    if (request.getParameter("username") != null ||request.getParameter("password") != null ||request.getParameter("name") != null || request.getParameter("email") != null ||  
-    		request.getParameter("phoneNum") != null){
-    	System.out.println("fefef");
-
-    	
-    
-	   // out.println(newGeneratedID);
-
-
-			  
-	    //Accounts
-	        Statement stmt2 = con.createStatement();
-		   stmt2.executeUpdate("INSERT INTO search4houses.Accounts (accID, username, password, fullName, email, phoneNum) VALUES ('"+newUserID+"','"+username+"','"+password+"','"+name+"','"+email+"','"+phoneNum+"');"); 
-		  
-
-		   //session.setAttribute("userID",userID); 
-		   //session.setAttribute("username",username); 
-		  
-		    	System.out.println("bofefeb");
-
-		    	
-		    	//Favorites
-		    	Statement stmt5 = con.createStatement();
-				   stmt5.executeUpdate("INSERT INTO search4houses.Favorites (listID) VALUES ("+newUserID+");");
-				   stmt5.close();
-				   
-				   Statement stmt6 = con.createStatement();
-				   stmt6.executeUpdate("INSERT INTO search4houses.User_Favorites (user_id, list_id) VALUES ("+newUserID+", "+newUserID+");");
-				   stmt6.close();
-
-		    
-		 
-
-		    stmt.close();
-		   
-		    
-			  
-		
-    }
-
 
  
-
-    stmt.close();
-
 
 
  con.close();
